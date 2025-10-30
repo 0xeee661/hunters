@@ -1,0 +1,40 @@
+{
+	"name": "hunters",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"codegen": "graphql-codegen --config codegen.ts"
+	},
+	"dependencies": {
+		"@graphql-codegen/cli": "^5.0.7",
+		"@graphql-codegen/client-preset": "^4.8.2",
+		"@vis.gl/react-google-maps": "^1.5.3",
+		"date-fns": "^4.1.0",
+		"graphql-tag": "^2.12.6",
+		"next": "15.3.2",
+		"react": "^19.0.0",
+		"react-datepicker": "^8.4.0",
+		"react-dom": "^19.0.0",
+		"react-hook-form": "^7.56.4",
+		"react-icons": "^5.5.0",
+		"react-photoswipe-gallery": "^3.1.1",
+		"react-slick": "^0.30.3",
+		"resend": "^4.5.1",
+		"slick-carousel": "^1.8.1"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"@types/react-slick": "^0.23.13",
+		"eslint": "^9",
+		"eslint-config-next": "15.3.2",
+		"sass": "^1.88.0",
+		"typescript": "^5"
+	}
+}

@@ -1,0 +1,146 @@
+@use '../../styles/responsive' as *;
+
+.rooftop {
+	&__hero {
+		position: relative;
+		min-height: 100vh;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+
+		/* Mobile adjustments: reduce height for smaller screens */
+		@include custom-breakpoint(425px) {
+			min-height: 70vh;
+			padding: 1rem;
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 60%;
+			z-index: 1;
+			background: linear-gradient(180deg, rgba(6, 11, 7, 0) 0%, #060b07 100%);
+		}
+		&__video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		&__title {
+			display: grid;
+			width: 100%;
+			max-width: 814px;
+			font-size: 6.25rem;
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			z-index: 1;
+			@include mobile {
+				font-size: 2.2rem;
+				max-width: 250px;
+			}
+			&__color {
+				color: var(--color-primary);
+				font-size: 5.625rem;
+				font-style: italic;
+				font-weight: 700;
+				line-height: normal;
+				text-align: right;
+				justify-self: end;
+				@include mobile {
+					font-size: 2.2rem;
+				}
+			}
+			&__subtitle {
+				font-size: 2.2rem;
+				font-style: italic;
+				font-weight: 700;
+				line-height: normal;
+				text-align: right;
+				@include mobile {
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
+	&__content {
+		min-height: 100vh;
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		@include mobile {
+			grid-template-columns: 1fr;
+		}
+		&__container {
+			position: relative;
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(
+					rgba(0, 0, 0, 1) 10%,
+					transparent 50%,
+					rgba(0, 0, 0, 1) 90%
+				);
+				pointer-events: none;
+			}
+			&__image {
+				width: 100%;
+				height: 100%;
+				max-height: 100vh;
+				object-fit: cover;
+			}
+		}
+		&__cards {
+			display: grid;
+			gap: 23px;
+			grid-template-rows: 1fr 1fr 1fr;
+			padding: 54px 43px;
+			min-height: 100vh;
+			&__card {
+				display: flex;
+				align-items: flex-end;
+				justify-content: flex-end;
+				border-radius: 39px;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				border: none;
+				outline: none;
+				color: inherit;
+				font-family: inherit;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				&:hover {
+					transform: scale(1.05);
+				}
+				&__text {
+					font-size: 2.5rem;
+					font-style: italic;
+					font-weight: 600;
+					line-height: normal;
+					background: var(--background);
+					padding: 10px 20px;
+					border-radius: 10px;
+					display: flex;
+					align-items: center;
+					gap: 10px;
+					padding: 21px 32px;
+					border-radius: 44px 0px 0px 0px;
+				}
+			}
+		}
+	}
+}
+
+

@@ -1,0 +1,39 @@
+'use client'
+
+import { use } from 'react'
+import s from './Hero.module.scss'
+import { Button } from 'components/ui/Button/Button'
+import { AppContext } from '@/context/AppContext'
+
+export const HeroSectionID = 'hero'
+export const Hero = () => {
+	const { toggleBooking } = use(AppContext)
+
+	return (
+		<section className={s.hero} id={HeroSectionID}>
+			<div className={s.hero__content}>
+				<h1 className={s.hero__content__title}>
+					Nuevo Hotel en{' '}
+					<span className={s.hero__content__title__bold}>Medellín</span> para
+					<br />
+					<span className={s.hero__content__title__color}>
+						Cazadores
+					</span> de{' '}
+					<span className={s.hero__content__title__italic}>Experiencias</span>
+				</h1>
+				<Button onClick={toggleBooking}>RESERVAR AHORA</Button>
+				<p className={s.hero__content__text}>En la calle 10</p>
+			</div>
+			<video
+				autoPlay
+				loop
+				muted
+				playsInline
+				preload="none"
+				className={s.hero__video}
+			>
+				<source src="/delete/videos/hunter-home-video.mp4" type="video/mp4" />
+			</video>
+		</section>
+	)
+}

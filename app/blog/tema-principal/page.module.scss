@@ -1,0 +1,122 @@
+@use '../../../styles/responsive' as *;
+
+.detail {
+	/* Controla el largo de línea (aprox. caracteres por línea) */
+	--measure: 68ch;
+	&__hero {
+		position: relative;
+		width: 100%;
+		min-height: 60vh;
+		&__image {
+			width: 100%;
+			height: 60vh;
+			object-fit: cover;
+			@include mobile { height: 40vh; }
+		}
+		&__overlay {
+			position: absolute;
+			bottom: 10%;
+			left: 0;
+			right: 0;
+			display: grid;
+			place-items: center;
+			text-align: center;
+		}
+		&__title {
+			color: #39E29D;
+			font-family: Montserrat, sans-serif;
+			font-size: 64px;
+			font-style: italic;
+			font-weight: 700;
+			line-height: normal;
+		}
+		&__subtitle {
+			color: #FFF;
+			font-family: Montserrat, sans-serif;
+			font-size: 40px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			margin-top: 4px;
+		}
+	}
+
+	&__content {
+		padding: 20px 80px;
+		p {
+			color: #FFF;
+			font-family: Montserrat, sans-serif;
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 100.776%;
+		}
+		&__cols {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 24px;
+			margin: 12px 0 24px;
+			@include mobile {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+
+	&__wideImage {
+		padding: 0 16px 8px;
+		display: grid;
+		place-items: center;
+		&__img {
+			width: 1153px;
+			height: 683px;
+			object-fit: cover;
+			border-radius: 6px;
+			@include mobile {
+				width: 100%;
+				height: auto;
+			}
+		}
+		&__caption {
+			display: block;
+			margin-top: 6px;
+			font-size: 0.9rem;
+			opacity: 0.8;
+		}
+	}
+
+	&__split {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px;
+		padding: 16px;
+		@include mobile {
+			grid-template-columns: 1fr;
+		}
+		&__left {
+			display: grid;
+			gap: 14px;
+			/* El párrafo largo a una columna con medida legible */
+			p {
+				max-width: var(--measure);
+				line-height: 1.65;
+				text-wrap: pretty;
+				hyphens: auto;
+				color: #FFF;
+				font-family: Montserrat, sans-serif;
+				font-size: 24px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 100.776%;
+			}
+		}
+		&__right {
+			&__img {
+				width: 100%;
+				height: auto;
+				border-radius: 6px;
+			}
+		}
+	}
+}
+
+

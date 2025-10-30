@@ -1,0 +1,62 @@
+@use '../../../styles/responsive' as *;
+
+.map {
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
+	padding-top: 133px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	@include mobile {
+		min-height: auto;
+		padding-top: 0;
+	}
+	&__text {
+		position: absolute;
+		top: 133px;
+		right: 40px;
+		color: #fff;
+		font-size: 4.5625rem;
+		font-style: italic;
+		font-weight: 500;
+		line-height: normal;
+		margin-bottom: 50px;
+		padding-left: 2rem;
+		&__color {
+			color: var(--color-primary);
+			font-style: italic;
+			font-weight: 700;
+			line-height: normal;
+			text-transform: uppercase;
+		}
+		@include mobile {
+			position: initial;
+			font-size: 2.2rem;
+			display: none;
+		}
+	}
+	&__lines,
+	&__map {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		max-width: 100vw;
+		pointer-events: none;
+		height: auto;
+	}
+	&__map {
+		display: block;
+		@include mobile {
+			display: none;
+			position: initial;
+		}
+	}
+	&__map_mobile {
+		display: none;
+		width: 100%;
+		@include mobile {
+			display: block;
+		}
+	}
+}

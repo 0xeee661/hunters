@@ -1,0 +1,20 @@
+@use '../../styles/responsive' as *;
+
+.privacy {
+	padding: 10rem 2rem;
+	max-width: 1000px;
+	margin: 0 auto;
+	p,
+	ul,
+	ol {
+		font-size: 1.2rem;
+		line-height: 1.5;
+		margin-bottom: 1rem;
+	}
+	h1 {
+		margin-bottom: 2rem;
+		@include mobile {
+			font-size: 1.5rem;
+		}
+	}
+}

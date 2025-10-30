@@ -1,0 +1,95 @@
+@use '../../../styles/responsive' as *;
+
+.experiences {
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	padding-top: 164px;
+	padding-left: 61px;
+	@include mobile {
+		padding-top: 133px;
+		padding-left: 32px;
+	}
+	&__video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	&__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			90deg,
+			#060b07 42.31%,
+			rgba(33, 33, 33, 0) 100%
+		);
+	}
+	&__lines {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		max-width: 100vw;
+		pointer-events: none;
+		height: auto;
+	}
+	&__content {
+		position: relative;
+		z-index: 1;
+		&__container {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			&__button {
+				color: var(--color-primary);
+				@include mobile {
+					display: none;
+				}
+			}
+		}
+		&__text {
+			color: #fff;
+			font-size: 3.125rem;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			@include mobile {
+				font-size: 2.2rem;
+			}
+			&__bold,
+			&__color {
+				font-weight: 700;
+				font-style: italic;
+			}
+			&__color {
+				font-size: 4.5625rem;
+				color: var(--color-primary);
+				@include mobile {
+					font-size: 2.2rem;
+				}
+			}
+		}
+		&__button {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin-top: 20px;
+		}
+	}
+	&__button {
+		position: absolute;
+		bottom: 73px;
+		right: 79px;
+		z-index: 1;
+		@include mobile {
+			bottom: 30px;
+			right: 50%;
+			transform: translateX(50%) translateY(0);
+		}
+	}
+}

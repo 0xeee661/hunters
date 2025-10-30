@@ -1,0 +1,82 @@
+@use '../../../styles/responsive' as *;
+
+.places {
+	position: relative;
+	height: 100vh;
+	padding: 59px 120px;
+	padding-top: 97px;
+	@include mobile {
+		padding: 59px 32px;
+		padding-top: 97px;
+	}
+	&__lines {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		pointer-events: none;
+		height: auto;
+	}
+	&__content {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		&__video {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		&__overlay {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			padding: 0 16px;
+			background: linear-gradient(
+				180deg,
+				var(--background) 0,
+				var(--background) 5%,
+				rgba(0, 0, 0, 0.5) 50%
+			);
+			&__text {
+				color: #fff;
+				font-size: 3.125rem;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+				text-align: center;
+				@include mobile {
+					font-size: 2.2rem;
+				}
+				&__bold,
+				&__color {
+					font-weight: 700;
+					font-style: italic;
+				}
+				&__color {
+					font-size: 4.5625rem;
+					color: var(--color-primary);
+					@include mobile {
+						font-size: 2.2rem;
+					}
+				}
+			}
+			&__button {
+				position: absolute;
+				bottom: 30px;
+				right: 46px;
+				z-index: 1;
+				@include mobile {
+					right: 50%;
+					transform: translateX(50%) translateY(0);
+				}
+			}
+		}
+	}
+}

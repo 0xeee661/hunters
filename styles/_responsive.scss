@@ -1,0 +1,11 @@
+@mixin mobile {
+	@media only screen and (max-width: 1062px) {
+		@content;
+	}
+}
+
+@mixin custom-breakpoint($custom: 1200px) {
+	@media only screen and (max-width: $custom) {
+		@content;
+	}
+}

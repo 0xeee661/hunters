@@ -1,0 +1,235 @@
+@use '../../styles/responsive' as *;
+
+.allies {
+	&__hero {
+		position: relative;
+		min-height: 100vh;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 60%;
+			z-index: 1;
+			background: linear-gradient(180deg, rgba(6, 11, 7, 0) 0%, #060b07 100%);
+		}
+		&__video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		&__title {
+			display: grid;
+			width: 100%;
+			max-width: 814px;
+			font-size: 6.25rem;
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			z-index: 1;
+			@include mobile {
+				font-size: 2.2rem;
+				max-width: 250px;
+			}
+			&__color {
+				color: var(--color-primary);
+				font-size: 5.625rem;
+				font-style: italic;
+				font-weight: 700;
+				line-height: normal;
+				text-align: right;
+				justify-self: end;
+				@include mobile {
+					font-size: 2.2rem;
+				}
+			}
+		}
+	}
+	&__content {
+		padding: 2rem;
+		padding-bottom: 10rem;
+		&__cards {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
+			max-width: 1200px;
+			margin: 0 auto;
+			@include mobile {
+				grid-template-columns: repeat(1, 1fr);
+			}
+			&__card {
+				display: flex;
+				align-items: flex-end;
+				justify-content: flex-end;
+				border-radius: 39px;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				border: none;
+				outline: none;
+				color: inherit;
+				font-family: inherit;
+				min-height: 200px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				&:hover {
+					transform: scale(1.05);
+				}
+				&__text {
+					font-size: 1.5rem;
+					font-style: italic;
+					font-weight: 600;
+					line-height: normal;
+					background: var(--background);
+					padding: 10px 20px;
+					border-radius: 10px;
+					display: flex;
+					align-items: center;
+					gap: 10px;
+					padding: 21px 32px;
+					border-radius: 44px 0px 0px 0px;
+				}
+			}
+		}
+	}
+	&__modal {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 100;
+		&__overlay {
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.5);
+		}
+		&__content {
+			position: absolute;
+			width: 90%;
+			max-width: 900px;
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			background-color: #151515;
+			backdrop-filter: saturate(180%) blur(5px);
+			border-radius: 6px;
+			animation: modal 0.5s;
+			@include mobile {
+				grid-template-columns: 1fr;
+			}
+			&__left {
+				border-radius: inherit;
+				border-bottom-left-radius: 0;
+				border-top-left-radius: 0;
+				color: #fff;
+				&__img {
+					width: 100%;
+					height: 300px;
+					object-fit: cover;
+					border-radius: inherit;
+				}
+				&__info {
+					padding: 2rem 2rem;
+					&__logo {
+						align-items: center;
+						justify-content: center;
+						margin-bottom: 2rem;
+						display: none;
+						@include mobile {
+							display: flex;
+						}
+						&__img {
+							width: 50%;
+						}
+					}
+					&__text1 {
+						font-size: 1.2rem;
+						font-weight: 900;
+					}
+					&__text2 {
+						font-size: 1rem;
+						font-weight: 600;
+					}
+					&__line {
+						margin: 1rem 0;
+					}
+					&__phone {
+						display: flex;
+						align-items: center;
+						gap: 0.4rem;
+						margin-bottom: 1rem;
+					}
+					&__address {
+						margin-bottom: 1rem;
+					}
+					&__list {
+						list-style: none;
+						&__item {
+							display: flex;
+							align-items: center;
+							gap: 0.4rem;
+							margin-bottom: 0.5rem;
+						}
+					}
+				}
+			}
+			&__right {
+				padding: 2rem;
+				display: grid;
+				justify-items: center;
+				grid-template-rows: auto 1fr;
+				gap: 1rem;
+				@include mobile {
+					display: none;
+				}
+				&__logo {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 0.5rem;
+					overflow: hidden;
+					&__img {
+						height: 4rem;
+					}
+				}
+				&__map {
+					height: 100%;
+					width: 100%;
+					border-radius: 6px;
+					overflow: hidden;
+				}
+			}
+			&__close {
+				position: absolute;
+				top: 20px;
+				right: 20px;
+				font-size: 2rem;
+				background: none;
+				border: none;
+				cursor: pointer;
+				background-color: #fff;
+				border-radius: 50%;
+				@include mobile {
+					background: #fff;
+					border-radius: 50%;
+					display: flex;
+					padding: 0.5rem;
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+}

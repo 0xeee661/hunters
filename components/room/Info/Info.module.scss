@@ -1,0 +1,197 @@
+@use '../../../styles/responsive' as *;
+
+.info {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	min-height: 100vh;
+	position: relative;
+	overflow: hidden;
+	@include mobile {
+		grid-template-columns: 1fr;
+	}
+	&__lines {
+		position: absolute;
+		top: 50px;
+		left: 0;
+		pointer-events: none;
+		height: auto;
+		opacity: 0.2;
+	}
+	&__content {
+		max-width: 550px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+		padding: 120px 20px;
+		z-index: 1;
+		@include mobile {
+			width: 100%;
+			background: url('/delete/img/room1.jpg') no-repeat center center;
+			background-size: cover;
+			padding: 50px 20px;
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(to bottom, transparent 42%, #000 90%);
+				z-index: -1;
+			}
+		}
+		&__title {
+			display: grid;
+			gap: 26px;
+			@include mobile {
+				gap: 0;
+			}
+			&__text {
+				font-weight: 400;
+				font-size: 4rem;
+				line-height: 100%;
+				letter-spacing: 0%;
+				@include mobile {
+					font-size: 2rem;
+					text-align: center;
+					display: inline;
+				}
+				&__br {
+					@include mobile {
+						display: none;
+					}
+				}
+				&:nth-child(2) {
+					text-align: right;
+					@include mobile {
+						text-align: center;
+					}
+				}
+				&__bold {
+					font-weight: 700;
+					font-style: italic;
+					font-size: 3.75rem;
+					line-height: 100%;
+					letter-spacing: 0%;
+					@include mobile {
+						font-size: 2rem;
+					}
+				}
+				&__color {
+					color: var(--color-primary);
+					font-size: 4.5625rem;
+					font-style: italic;
+					font-weight: 700;
+					line-height: normal;
+					@include mobile {
+						font-size: 2rem;
+					}
+				}
+			}
+		}
+		&__text {
+			color: #fffac9;
+			font-size: 1.5rem;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 148.443%; /* 2.22663rem */
+			margin-top: 43px;
+			margin-bottom: 54px;
+			@include mobile {
+				color: #fffac9;
+				text-align: center;
+				font-size: 0.9375rem;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 148.443%; /* 1.39163rem */
+				order: 2;
+				margin: 0;
+				margin-top: 58px;
+				max-width: 338px;
+			}
+		}
+		&__services {
+			max-width: 100%;
+			@include mobile {
+				max-width: 90%;
+				margin-top: 200px;
+				order: 1;
+			}
+		}
+		// Amenities block
+		.info__amenities {
+			margin-top: 24px;
+			width: 100%;
+			// If consumer uses existing text class, reduce sizes here
+			.info__content__text {
+				font-size: 1.5rem; // smaller than the paragraph style
+				font-weight: 700; // match typography weight
+				margin-top: 8px;
+				margin-bottom: 8px;
+				color: #fffac9; // match paragraph color
+				@include mobile {
+					font-size: 0.875rem;
+				}
+				li {
+					font-size: 1.15rem;
+					font-weight: 700; // match typography weight
+					color: #fffac9; // match paragraph color
+				}
+			}
+			/* Remove default bullets for just this amenities UL */
+			ul.info__content__text { 
+        list-style: none; 
+        padding-left: 0;
+        margin: 0; }
+			&__title {
+				color: #fff;
+				font-weight: 700;
+				margin-bottom: 8px;
+				font-size: 1.125rem;
+			}
+			&__list {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 8px;
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				li {
+					color: #fff;
+					font-weight: 600;
+					font-size: 0.95rem;
+				}
+			}
+		}
+		&__button {
+			display: none !important;
+			margin-top: 43px;
+			@include mobile {
+				display: block !important;
+				margin-top: 21px;
+			}
+		}
+	}
+	&__photo {
+		position: relative;
+		@include mobile {
+			display: none;
+		}
+		&__image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 50px 0px 0px 50px;
+		}
+		&__button {
+			position: absolute;
+			bottom: 56px;
+			right: 100px;
+			@include mobile {
+				display: none !important;
+			}
+		}
+	}
+}

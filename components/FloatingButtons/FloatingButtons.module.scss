@@ -1,0 +1,21 @@
+@use '../../styles/responsive' as *;
+
+.floating_buttons {
+	&__whatsapp {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 56px;
+		width: 56px;
+		border-radius: 50%;
+		background-color: #25d366;
+		box-shadow: 0 6px 8px 2px rgba(0, 0, 0, 0.14);
+		position: fixed;
+		right: 1.5rem;
+		bottom: 6rem;
+		z-index: 9999; /* ensure above all content overlays */
+		color: #fff;
+		font-size: 2rem;
+		transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+	}
+}

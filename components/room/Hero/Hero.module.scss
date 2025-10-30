@@ -1,0 +1,99 @@
+@use '../../../styles/responsive' as *;
+
+.hero {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	padding-top: 120px;
+	padding-bottom: 66px;
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	gap: 40px;
+	@include mobile {
+		padding: 120px 0;
+	}
+	&__video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		opacity: 0.7;
+	}
+	&__title {
+		color: #fff;
+		font-size: 3.125rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center;
+		z-index: 1;
+		@include mobile {
+			font-size: 2.2rem;
+			padding: 0 20px;
+		}
+		&__bold,
+		&__italic,
+		&__color {
+			color: #fff;
+			font-size: 3.125rem;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			@include mobile {
+				font-size: 2.5rem;
+			}
+		}
+		&__italic {
+			color: var(--color-primary);
+			font-style: italic;
+		}
+		&__color {
+			color: var(--color-primary);
+			font-size: 3.75rem;
+			@include mobile {
+				font-size: 2.2rem;
+			}
+		}
+	}
+	&__slider {
+		width: 100%;
+		max-width: 754px;
+		padding: 0 20px;
+
+		:global(.slick-slide) {
+			padding: 0 7px;
+		}
+
+		:global(.slick-prev) {
+			@include mobile {
+				left: 0;
+			}
+		}
+
+		:global(.slick-next) {
+			@include mobile {
+				right: 0;
+			}
+		}
+
+		&__item {
+			width: 100%;
+			object-fit: cover;
+			border-radius: 20px;
+			cursor: pointer;
+		}
+	}
+
+	// spacing below the image carousel for the icons carousel
+	:global(.carousel) {
+		max-width: 980px;
+		margin-top: 10px;
+	}
+	&__button {
+		z-index: 1;
+	}
+}

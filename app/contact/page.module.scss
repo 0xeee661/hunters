@@ -1,0 +1,81 @@
+@use '../../styles/responsive' as *;
+
+.contact {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&__lines {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		max-width: 100vw;
+		pointer-events: none;
+		height: auto;
+	}
+	&__content {
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		width: 100%;
+		gap: 75px;
+		padding: 120px 20px;
+		@include mobile {
+			flex-direction: column-reverse;
+			gap: 30px;
+		}
+		&__info {
+			&__content {
+				display: grid;
+				gap: 26px;
+				&__text {
+					font-weight: 400;
+					font-size: 4rem;
+					line-height: 100%;
+					letter-spacing: 0%;
+					@include mobile {
+						font-size: 2.2rem;
+					}
+					&:nth-child(2) {
+						text-align: right;
+					}
+					&__bold {
+						font-weight: 700;
+						font-style: italic;
+						font-size: 3.75rem;
+						line-height: 100%;
+						letter-spacing: 0%;
+						@include mobile {
+							font-size: 2.2rem;
+						}
+					}
+					&__color {
+						color: var(--color-primary);
+						font-size: 4.5625rem;
+						font-style: italic;
+						font-weight: 700;
+						line-height: normal;
+						@include mobile {
+							font-size: 2.2rem;
+						}
+					}
+				}
+			}
+			&__social {
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				gap: 30px;
+				margin-top: 60px;
+				@include mobile {
+					margin-top: 30px;
+				}
+				a {
+					color: var(--color-primary);
+					font-size: 41px;
+				}
+			}
+		}
+	}
+}

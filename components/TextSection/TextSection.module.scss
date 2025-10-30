@@ -1,0 +1,26 @@
+.textSection {
+  width: 100%;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &__title {
+    color: var(--color-1);
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
+  }
+}
+

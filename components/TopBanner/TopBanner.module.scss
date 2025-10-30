@@ -1,0 +1,58 @@
+.topBanner {
+  background-color: #39E29D;
+  width: 100%;
+  padding: 8px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  height: 34px;
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text {
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+
+  .highlight {
+    font-weight: 700;
+    color: #000000;
+    margin: 0 4px;
+  }
+
+  .link {
+    color: #000000;
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    margin-left: 4px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+}
+

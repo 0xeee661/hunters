@@ -1,0 +1,18 @@
+@use '../styles/responsive' as *;
+
+.home {
+	height: 100vh;
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+	& > * {
+		scroll-snap-align: start;
+	}
+	@include mobile {
+		height: initial;
+		overflow-y: initial;
+		scroll-snap-type: initial;
+		& > * {
+			scroll-snap-align: initial;
+		}
+	}
+}
