@@ -6,6 +6,8 @@ import menu2 from '@/public/menu/menu2.jpg'
 // Usaremos rutas públicas para evitar advertencias de HMR con módulos estáticos
 // Nota: evitamos importar rest.jpg porque Next intenta decodificar metadatos y el archivo puede no ser un JPEG válido.
 import { IoArrowForwardCircleOutline } from 'react-icons/io5'
+import { FaFacebookF, FaInstagram } from 'react-icons/fa'
+import { SiTiktok } from 'react-icons/si'
 import Link from 'next/link'
 import { WHATSAPP_LINK } from '@/lib/constants/app'
 import { Gallery, Item } from 'react-photoswipe-gallery'
@@ -16,10 +18,15 @@ const RestaurantPage = () => {
 		<main className={s.restaurant}>
 			<section className={s.restaurant__hero}>
 				<h1 className={s.restaurant__hero__title}>
-					<span>Restaurante</span>
-					<span className={s.restaurant__hero__title__color}>By Hunters</span>
+					<span className={s.restaurant__hero__title__color}>
+            <Image src="/menu/linze.png" alt="Linze" width={200} height={200} />
+          </span>
 					<span className={s.restaurant__hero__title__subtitle}>
-						Proximamente
+          Un punto de encuentro donde el buen gusto se siente en cada detalle.
+En Linze, la gastronomía se mezcla con la energía de la música, los cócteles y las conversaciones que fluyen sin prisa. Creado para quienes disfrutan de los sabores bien hechos, las atmósferas relajadas y las experiencias que se sienten auténticas.
+
+Vení a probar, a brindar o simplemente a dejarte llevar.
+En Linze, el momento siempre se siente justo.
 					</span>
 				</h1>
 				<video
@@ -30,7 +37,7 @@ const RestaurantPage = () => {
 					preload="none"
 					className={s.restaurant__hero__video}
 				>
-					<source src="/menu/restaurante_video.mp4" type="video/mp4" />
+					<source src="/menu/restauranteVideo.mp4" type="video/mp4" />
 				</video>
 			</section>
 			<section className={s.restaurant__content}>
@@ -40,6 +47,37 @@ const RestaurantPage = () => {
 						alt="Restaurante"
 						className={s.restaurant__content__container__image}
 					/>
+
+					{/* Iconos sociales posicionados en la sección de contenido */}
+					<div className={s.restaurant__content__social}>
+						{/* <a
+							href="#"
+							target="_blank"
+							rel="noopener noreferrer"
+							className={s.restaurant__content__social__icon}
+							aria-label="Facebook"
+						>
+							<FaFacebookF />
+						</a> */}
+						<a
+							href="https://www.instagram.com/linze.club/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className={s.restaurant__content__social__icon}
+							aria-label="Instagram"
+						>
+							<FaInstagram />
+						</a>
+					{/*	<a
+							href="#"
+							target="_blank"
+							rel="noopener noreferrer"
+							className={s.restaurant__content__social__icon}
+							aria-label="TikTok"
+						>
+							<SiTiktok />
+						</a> */}
+					</div>
 				</div>
 				<div className={s.restaurant__content__cards}>
 					<Link
