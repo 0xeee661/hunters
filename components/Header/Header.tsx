@@ -45,18 +45,8 @@ export const Header = () => {
             </Link>
           </li>
           <li className={s.header__nav__list__item}>
-            <Link href="/blog" className={s.header__nav__list__item__link}>
-              Blog
-            </Link>
-          </li>
-          <li className={s.header__nav__list__item}>
             <Link href="/room" className={s.header__nav__list__item__link}>
-              Habitación
-            </Link>
-          </li>
-          <li className={s.header__nav__list__item}>
-            <Link href="/contact" className={s.header__nav__list__item__link}>
-              Contáctanos
+            Habitación
             </Link>
           </li>
           <li className={s.header__nav__list__item}>
@@ -72,6 +62,16 @@ export const Header = () => {
           <li className={s.header__nav__list__item}>
             <Link href="/rooftop" className={s.header__nav__list__item__link}>
               Rooftop
+            </Link>
+          </li>
+          <li className={s.header__nav__list__item}>
+            <Link href="/blog" className={s.header__nav__list__item__link}>
+              Blog
+            </Link>
+          </li>
+          <li className={s.header__nav__list__item}>
+            <Link href="/contact" className={s.header__nav__list__item__link}>
+              Contáctanos
             </Link>
           </li>
         </ul>

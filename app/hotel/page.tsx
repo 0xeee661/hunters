@@ -26,6 +26,7 @@ import {
   IoBedOutline,
   IoSnowOutline,
 } from 'react-icons/io5'
+import Footer from '@/components/Footer/Footer'
 
 const HotelPage = () => {
   const { toggleBooking } = use(AppContext)
@@ -83,7 +84,7 @@ const HotelPage = () => {
               <br /> <span className={s.hotel__intro__title__perfect}>es perfecto</span>
             </h2>
             <p className={s.hotel__intro__desc}>
-              si tu plan es disfrutar de restaurantes, bares y la vida nocturna de Medellín a
+              Si tu plan es disfrutar de restaurantes, bares y la vida nocturna de Medellín a
               solo pasos de tu habitación.
             </p>
           </div>
@@ -244,18 +245,22 @@ const HotelPage = () => {
 
           <div className="lg:w-[40%] w-[50%] ">
             <Image src={attendantImg} alt="Recepción"
-              className="lg:w-[1272px] lg:h-[1272px]
-              md:w-[972px] md:h-[972px]
-              w-[820px] h-[532px]
+              className="xl:w-[1000px] xl:h-[1000px]
+              lg:w-[900px] lg:h-[900px]
+              md:w-[800px] md:h-[800px]
+              w-[700px] h-[432px]
 
-              lg:right-[33%]
-              lg:top-[16%]
+              xl:right-[53%]
+              xl:top-[35%]
+
+              lg:right-[42%]
+              lg:top-[35%]
 
               md:right-[32%]
-              md:top-[14%]
+              md:top-[26%]
 
               right-[32%]
-              top-[26.5%]
+              top-[40%]
 
               absolute
               z-20
@@ -272,50 +277,49 @@ const HotelPage = () => {
             <h3>
               <p className="font-montserrat 
               font-normal 
-              text-[1.5rem] sm:text-[3rem] 
-              md:text-[2.5rem]
-              lg:text-[3.5rem] xl:text-[4rem] 
-              lg:pl-[44%] pl-[37%]
+              text-[1.5rem] sm:text-[2.2rem] 
+              md:text-[2.2rem]
+              lg:text-[3rem] xl:text-[4rem] 
+              xl:pl-[53%] lg:pl-[45%] md:pl-[47%]  pl-[33%]
               leading-none tracking-normal 
               ">política de</p>
               <br />
+
               <p className="font-montserrat 
                 font-bold italic text-[1.5rem] sm:text-[3.5rem] 
                 md:text-[2.5rem]
-                lg:text-[3.46rem] xl:text-[4.56rem] 
+                lg:text-[3.26rem] xl:text-[4.2rem] 
                 leading-none tracking-normalwhitespace-nowrap pt-4
-                text-[#39E29D] lg:pl-0 pl-[25%] -mt-8">
+                text-[#39E29D] xl:pl-16 lg:pl-0 md:pl-[33%] pl-[22%] -mt-8">
                 <span>cancelación</span>
-                <span className='pl-[28%] block lg:hidden'>gratuita</span> 
+                <span className='pl-[25%] block lg:hidden'>gratuita</span> 
                 <span className='hidden lg:inline'>{' '}</span>
                 <span className='hidden lg:inline'>gratuita</span>
               </p>
               
               <br />
               <p className="font-montserrat font-normal 
-              text-[1rem] sm:text-[1.3rem] 
-              md:text-[1.8rem] lg:text-[2.4rem] xl:text-[3.05rem] 
-              leading-none tracking-normal lg:pl-0 pl-[30%] -mt-4">
+              text-[1rem] md:text-[1.8rem] lg:text-[2.4rem] xl:text-[3.05rem] 
+              leading-none tracking-normal xl:pl-0 lg:pl-16 md:pl-[36%] pl-[30%] -mt-4">
                 en la mayoría de  
                 <span className='hidden lg:inline'>{' '}</span>
                 <span className='hidden lg:inline
               '>nuestras tarifas</span>
               </p>
               <p className="font-montserrat font-normal 
-              text-[1rem] sm:text-[1.3rem] 
-              md:text-[1.8rem] lg:text-[2.4rem] xl:text-[3.05rem] 
-              leading-none tracking-normal lg:pl-0 pl-[33%] lg:hidden">
+              text-[1rem] md:text-[1.8rem] lg:text-[2.4rem] xl:text-[3.05rem] 
+              leading-none tracking-normal lg:pl-0 md:pl-[40%] pl-[33%] lg:hidden">
               nuestras tarifas
               </p>
             </h3>
 
             <p className="font-montserrat font-normal 
             text-[1.1rem] sm:text-[2rem]
-            md:text-[2.2rem] lg:text-[3.3rem] xl:text-[4rem] 
+            md:text-[2rem] lg:text-[3rem] xl:text-[3.5rem] 
             leading-none tracking-normal 
             lg:pt-12 md:pt-8 sm:pt-8 
             pt-8
-            lg:pl-[35%] md:pl-[22%] pl-[36%]">
+            xl:pl-[39%] lg:pl-[25%] md:pl-[44%] pl-[36%]">
               y servicio en
               <br />
               recepción <span className="
@@ -338,6 +342,9 @@ const HotelPage = () => {
         </div>
 
       </section>
+
+      <Footer />
+
     </main>
   )
 }
