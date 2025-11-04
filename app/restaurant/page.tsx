@@ -6,8 +6,7 @@ import menu2 from '@/public/menu/menu2.jpg'
 // Usaremos rutas públicas para evitar advertencias de HMR con módulos estáticos
 // Nota: evitamos importar rest.jpg porque Next intenta decodificar metadatos y el archivo puede no ser un JPEG válido.
 import { IoArrowForwardCircleOutline } from 'react-icons/io5'
-import { FaFacebookF, FaInstagram } from 'react-icons/fa'
-import { SiTiktok } from 'react-icons/si'
+import { FaInstagram } from 'react-icons/fa'
 import Link from 'next/link'
 import { WHATSAPP_LINK } from '@/lib/constants/app'
 import { Gallery, Item } from 'react-photoswipe-gallery'
@@ -15,14 +14,6 @@ import 'photoswipe/dist/photoswipe.css'
 import { TextSection } from '@/components/TextSection/TextSection'
 import Footer from '@/components/Footer/Footer'
 
-const desired = [
-  '/menu/menu1.jpg',
-  '/menu/menu2.jpg',
-  '/menu/menu3.jpg',
-  '/menu/menu4.jpg',
-  '/menu/menu5.jpg',
-  '/menu/menu6.jpg',
-]
 const textData = [
   {
     sys: { id: '1' },

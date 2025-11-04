@@ -1,16 +1,5 @@
 'use client'
-import Image from 'next/image'
 import s from './page.module.scss'
-import restaurant1 from '@/public/delete/img/restaurant1.png'
-import restaurant2 from '@/public/delete/img/restaurant2.jpg'
-import restaurant3 from '@/public/delete/img/restaurant3.jpg'
-import restaurant4 from '@/public/delete/img/restaurant4.jpg'
-import { IoArrowForwardCircleOutline } from 'react-icons/io5'
-import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa'
-import Link from 'next/link'
-import { WHATSAPP_LINK } from '@/lib/constants/app'
-import { Gallery, Item } from 'react-photoswipe-gallery'
-import 'photoswipe/dist/photoswipe.css'
 import Footer from '@/components/Footer/Footer'
 
 const RooftopPage = () => {
