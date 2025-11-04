@@ -8,25 +8,18 @@ type Props = { params: Promise<{ slug: string }> }
 export default async function BlogTemaPage({ params }: Props) {
   const { slug } = await params
 
-  console.log('=== BLOG SLUG PAGE: Loading page for slug:', slug)
-
   // Obtener todos los posts
   const blogData = await getHuntersBlogDataNoLocale()
-  console.log('BLOG SLUG PAGE: Blog data received:', blogData?.length, 'posts')
 
   // El slug ya está en el formato correcto del título (first-content)
   const postTitle = slug?.toLowerCase()
-  console.log('BLOG SLUG PAGE: Looking for post with title:', postTitle)
 
   // Buscar el post por título exacto
   const post = blogData?.find((p): p is HuntersBlog =>
     p?.title?.toLowerCase() === postTitle
   )
 
-  console.log('BLOG SLUG PAGE: Post found:', post ? 'YES' : 'NO')
-
   if (!post) {
-    console.log('BLOG SLUG PAGE: Post not found for slug:', slug)
     return (
       <main className={s.detail}>
         <div style={{ padding: '2rem', textAlign: 'center' }}>
@@ -36,14 +29,6 @@ export default async function BlogTemaPage({ params }: Props) {
       </main>
     )
   }
-
-  console.log('BLOG SLUG PAGE: Using post data:', {
-    title: post.title,
-    author: post.postWritter,
-    hasHeaderImage: !!post.headerImage,
-    hasMiddleImage: !!post.middleImage,
-    hasBottomImage: !!post.bottomImage
-  })
 
   return (
     <main className={s.detail}>

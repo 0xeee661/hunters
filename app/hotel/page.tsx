@@ -11,7 +11,9 @@ import cover3 from '@/public/delete/img/hotel/room2.png'
 import cover4 from '@/public/delete/img/hotel/room.png'
 import layerImg from '@/public/delete/img/layer.png'
 import breakfastImg from '@/public/delete/img/hotel/desayuno.png'
-import attendantImg from '@/public/delete/img/hotel/mesera.png'
+import attendantImg from '@/public/menu/agent.png'
+import servicesSVG from '@/public/delete/img/services.svg'
+import linesLeft from '@/public/delete/img/lines4.png'
 import { Button } from '@/components/ui/Button/Button'
 import { IoArrowForwardCircleOutline } from 'react-icons/io5'
 import type { CSSProperties } from 'react'
@@ -25,13 +27,14 @@ import {
   IoBedOutline,
   IoSnowOutline,
 } from 'react-icons/io5'
+import Footer from '@/components/Footer/Footer'
 
 const HotelPage = () => {
   const { toggleBooking } = use(AppContext)
 
   return (
     <main className={s.hotel}>
-      
+
       <section className={s.hotel__hero}>
         <div className={s.hotel__hero__text}>
           <h1 className={s.hotel__hero__title}>
@@ -48,8 +51,8 @@ const HotelPage = () => {
             </span>
           </h1>
           <Button className={s.hotel__hero__cta} onClick={toggleBooking}>RESERVAR AHORA</Button>
-          <p className={s.hotel__hero__desc} 
-          style={{ '--hero-desc-mobile-mt': '15%' } as CSSProperties}>
+          <p className={s.hotel__hero__desc}
+            style={{ '--hero-desc-mobile-mt': '15%' } as CSSProperties}>
             Ubicado cerca a Provenza y El Poblado, en el corazón de la zona más vibrante y
             central de la ciudad.
           </p>
@@ -67,34 +70,34 @@ const HotelPage = () => {
       </section>
 
       <section className={s.hotel__intro}>
-        
+
         <div className={s.hotel__intro__left}>
           <div className={s.hotel__intro__centered}>
-          <Image src={lines} alt="lines" className={s.hotel__intro__lines} />
-          <div className={s.hotel__intro__ctaRow}>
-            <Button className={`${s.small} ${s.hotel__intro__cta}`}>
-              RESERVAR AHORA
-            </Button>
+            <Image src={lines} alt="lines" className={s.hotel__intro__lines} />
+            <div className={s.hotel__intro__ctaRow}>
+              <Button className={`${s.small} ${s.hotel__intro__cta}`}>
+                RESERVAR AHORA
+              </Button>
               <IoArrowForwardCircleOutline size={50} />
-          </div>
-          <h2 className={s.hotel__intro__title}>
-            <span className={s.hotel__intro__title__hunters}>Hunters</span> <span className={s.hotel__intro__title__hotel}>Hotel</span>
-            <br /> <span className={s.hotel__intro__title__perfect}>es perfecto</span>
-          </h2>
-          <p className={s.hotel__intro__desc}>
-            si tu plan es disfrutar de restaurantes, bares y la vida nocturna de Medellín a
-            solo pasos de tu habitación.
-          </p>
+            </div>
+            <h2 className={s.hotel__intro__title}>
+              <span className={s.hotel__intro__title__hunters}>Hunters</span> <span className={s.hotel__intro__title__hotel}>Hotel</span>
+              <br /> <span className={s.hotel__intro__title__perfect}>es perfecto</span>
+            </h2>
+            <p className={s.hotel__intro__desc}>
+              si tu plan es disfrutar de restaurantes, bares y la vida nocturna de Medellín a
+              solo pasos de tu habitación.
+            </p>
           </div>
         </div>
 
         <div className={s.hotel__intro__gallery}>
           <div className={`${s.card} ${s.tall}`}>
             <Image src={layerImg} alt="Galería" />
-          
+
           </div>
         </div>
-        
+
       </section>
 
       <section
@@ -114,22 +117,22 @@ const HotelPage = () => {
               <br /> <span className={s.hotel__rooms__title__secondary}>y las mejores</span> <span className={s.hotel__rooms__title__amenities}>amenidades</span>
             </h3>
             <ul className={s.hotel__rooms__icons}>
-            <li>
-              <IoWifiOutline />
-              <span>wifi<br />24/7</span>
-            </li>
-            <li>
-              <IoCafeOutline />
-              <span>Coffe<br />station</span>
-            </li>
-            <li>
-              <IoBedOutline />
-              <span>King<br />Size</span>
-            </li>
-            <li>
-              <IoSnowOutline />
-              <span>Air<br />conditioning</span>
-            </li>
+              <li>
+                <IoWifiOutline />
+                <span>wifi<br />24/7</span>
+              </li>
+              <li>
+                <IoCafeOutline />
+                <span>Coffe<br />station</span>
+              </li>
+              <li>
+                <IoBedOutline />
+                <span>King<br />Size</span>
+              </li>
+              <li>
+                <IoSnowOutline />
+                <span>Air<br />conditioning</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -152,77 +155,191 @@ const HotelPage = () => {
           <Button className={s.hotel__rooms__cta}>VER HABITACIONES</Button>
           <IoArrowForwardCircleOutline size={50} />
         </div>
-        
+
       </section>
 
-      <section className={s.hotel__benefits} id="politicas">
-        
-        <div className={s.hotel__benefits__breakfast}>
-                    
-          <div className={s.hotel__benefits__breakfast__text} 
-          style={{ 
-            '--breakfast-text-y-desktop': '-150px',
-            '--breakfast-text-y-mobile': '-5%',
-            '--breakfast-pt': '0px', 
-            '--breakfast-mobile-shift-x': '17%'
-          } as CSSProperties}>
+      <section
+        className="flex flex-col items-center 
+      justify-center
+      overflow-hidden 
+      lg:min-h-[100vh]  relative
+      " id="politicas"
+
+      >
+
+        <div className="flex w-full px-4 lg:px-16  
+        ">
+
+          <div className="absolute inset-0 bg-gradient-to-br 
+          from-[#39e29d] via-[#1fd18b] to-[#0b773f] xl:h-[33%] 
+          lg:h-[32%] md:h-[33%] sm:h-[30%] h-[35%]">
+            
+            <div className="absolute inset-x-0 bottom-0 h-12 md:h-14 lg:h-[70%] 
+          bg-gradient-to-t from-black/70 via-black/40 to-transparent 
+          pointer-events-none z-0"></div>
+          </div>
+
+          {/* Overlay oscuro en la parte inferior */}
+
+          <div className="w-[75%] z-10 pt-[5%]" >
             <h3>
-              <span className={s.hotel__benefits__breakfast__titleTop}>
-                El <span className={s.hotel__benefits__breakfast__desayuno}>desayuno</span>
+              <span className="">
+                <span className="font-montserrat 
+                font-extrabold italic 
+                leading-none tracking-normal 
+                text-[2rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem]
+                text-black  
+                ">El desayuno</span>
               </span>
               <br />
-              <span className={s.hotel__benefits__breakfast__titleMid}>viene incluido</span>
+              <span className="
+              font-montserrat font-semibold 
+              italic text-[1.6rem] 
+              sm:text-[3rem] 
+              lg:text-[3.60rem] 
+              xl:text-[3.75rem]
+              leading-none 
+              tracking-normal">viene incluido</span>
               <br />
-              <span className={s.hotel__benefits__breakfast__titleBottom}>en tu tarifa</span>
+              <span className="
+              font-montserrat
+              font-semibold 
+              italic 
+              text-[1.6rem] 
+              sm:text-[3rem] 
+              lg:text-[3.5rem] 
+              xl:text-[4rem]
+              leading-none 
+              tracking-normal text-[#FFFAC9]">en tu tarifa</span>
             </h3>
-            <small className={s.hotel__benefits__breakfast__note}>*Aplican T&C.</small>
+            <small className="">*Aplican T&C.</small>
           </div>
-          
-          <div className={s.hotel__benefits__breakfast__imageWrap}>
+
+          <div className="absolute pt-[5%]">
             <Image
               src={breakfastImg}
               alt="Desayuno"
-              className={s.hotel__benefits__breakfast__image}
-              style={{ '--breakfast-rotate': '60deg' } as CSSProperties}
+              className="w-80 h-80 xl:w-[732px] xl:h-[732px]
+              lg:w-[532px] lg:h-[532px]
+              md:w-[432px] md:h-[432px]
+              w-[300px] h-[300px]
+              rotate-[60deg]
+              xl:-mt-[20%] lg:-mt-[20%]  -mt-[10%] relative 
+              lg:left-[80%] xl:left-[80%] md:left-[80%] left-[40%]"
             />
           </div>
 
         </div>
 
-        <div className={s.hotel__benefits__policy}>
-          <Image src={attendantImg} alt="Recepción" 
-          className={s.hotel__benefits__policy__agent} />
-          
-          <div className={s.hotel__benefits__policy__text} 
-          style={{ '--policy-text-shift': '0px', 
-          '--policy-mobile-shift-x': '-2%' } as CSSProperties}>
-            <h3>
-              <span className={s.hotel__benefits__policy__politica}>política de</span>{' '}
-              <span className={s.hotel__benefits__policy__emph}>
-                <span className={s.hotel__benefits__policy__emph__word1}>cancelación</span>{' '}
-                <span className={s.hotel__benefits__policy__emph__word2}>gratuita</span>
-              </span>
-              <br />
-              <span className={s.hotel__benefits__policy__tarifas}>
-                <span className={s.hotel__benefits__policy__tarifas__word1}>en la mayoría de</span>{' '}
-                <span className={s.hotel__benefits__policy__tarifas__word2}>nuestras tarifas</span>
-              </span>
-            </h3>
-            <p className={s.hotel__benefits__policy__ys} style={{ '--ys-pt': '24px', '--ys-pl': '24px' } as CSSProperties}>
-              <span className={s.hotel__benefits__policy__y}>y</span>
-              <span className={s.hotel__benefits__policy__serv}>servicio en</span>
-              <br />
-              <span className={s.hotel__benefits__policy__pair}>
-                <span className={s.hotel__benefits__policy__recep}>recepción</span>{' '}
-                <span className={s.hotel__benefits__policy__time}>24/7</span>
-              </span>
-            </p>
-          </div>
-          
-        </div>
-        
-      </section>
+        <div className="w-full flex h-[40%] mb-[5%]">
+          {/* Líneas verdes del inicio, detrás de agente y texto */}
+          <Image
+            src={linesLeft}
+            alt="lines"
+            className="z-0 absolute w-full xl:top-[43%] 
+            lg:top-[60%]
+            md:top-[57%]
+            top-[67%]
+            "
+            
+          />
 
+          <div className="lg:w-[40%] w-[50%] ">
+            <Image src={attendantImg} alt="Recepción"
+              className="lg:w-[1272px] lg:h-[1272px]
+              md:w-[972px] md:h-[972px]
+              w-[820px] h-[532px]
+
+              lg:right-[33%]
+              lg:top-[16%]
+
+              md:right-[32%]
+              md:top-[14%]
+
+              right-[32%]
+              top-[26.5%]
+
+              absolute
+              z-20
+              "
+            />
+          </div>
+
+          <div className=" lg:pt-24 z-10 w-full lg:w-auto 
+          lg:mt-[14%] xl:mt-[14%]
+           md:mt-[25%] sm:mt-[30%] mt-[35%]
+           md:pr-0
+          pr-10">
+            
+            <h3>
+              <p className="font-montserrat 
+              font-normal 
+              text-[1.5rem] sm:text-[3rem] 
+              md:text-[2.5rem]
+              lg:text-[3.5rem] xl:text-[4rem] 
+              lg:pl-[44%] pl-[37%]
+              leading-none tracking-normal 
+              ">política de</p>
+              <br />
+              <p className="font-montserrat 
+                font-bold italic text-[1.5rem] sm:text-[3.5rem] 
+                md:text-[2.5rem]
+                lg:text-[3.46rem] xl:text-[4.56rem] 
+                leading-none tracking-normalwhitespace-nowrap pt-4
+                text-[#39E29D] lg:pl-0 pl-[25%] -mt-8">
+                <span>cancelación</span>
+                <span className='pl-[28%] block lg:hidden'>gratuita</span> 
+                <span className='hidden lg:inline'>{' '}</span>
+                <span className='hidden lg:inline'>gratuita</span>
+              </p>
+              
+              <br />
+              <p className="font-montserrat font-normal 
+              text-[1rem] sm:text-[1.3rem] 
+              md:text-[1.8rem] lg:text-[2.4rem] xl:text-[3.05rem] 
+              leading-none tracking-normal lg:pl-0 pl-[30%] -mt-4">
+                en la mayoría de  
+                <span className='hidden lg:inline'>{' '}</span>
+                <span className='hidden lg:inline
+              '>nuestras tarifas</span>
+              </p>
+              <p className="font-montserrat font-normal 
+              text-[1rem] sm:text-[1.3rem] 
+              md:text-[1.8rem] lg:text-[2.4rem] xl:text-[3.05rem] 
+              leading-none tracking-normal lg:pl-0 pl-[33%] lg:hidden">
+              nuestras tarifas
+              </p>
+            </h3>
+
+            <p className="font-montserrat font-normal 
+            text-[1.1rem] sm:text-[2rem]
+            md:text-[2.2rem] lg:text-[3.3rem] xl:text-[4rem] 
+            leading-none tracking-normal 
+            lg:pt-12 md:pt-8 sm:pt-8 
+            pt-8
+            lg:pl-[35%] md:pl-[22%] pl-[36%]">
+              y servicio en
+              <br />
+              recepción <span className="
+                font-montserrat font-bold italic 
+                text-[1.4rem] sm:text-[3.5rem] 
+                md:text-[2.5rem] lg:text-[3.56rem] xl:text-[4.56rem] 
+                leading-none tracking-normal text-right 
+                text-[#39E29D] hidden lg:inline">24/7</span>
+            </p>
+            <p className="
+                font-montserrat font-bold italic 
+                text-[1.4rem] sm:text-[3.5rem] 
+                md:text-[2.5rem]
+                lg:text-[4.56rem] 
+                leading-none tracking-normal text-right 
+                text-[#39E29D] pr-12 md:pr-24 lg:hidden
+                ">24/7</p>
+          </div>
+
+        </div>
+
+      </section>
     </main>
   )
 }

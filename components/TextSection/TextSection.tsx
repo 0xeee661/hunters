@@ -8,7 +8,6 @@ type TextSectionProps = {
 }
 
 export const TextSection = ({ textData }: TextSectionProps) => {
-  console.log('TextSection: Received textData:', textData)
 
   return (
     <section className={s.textSection}>

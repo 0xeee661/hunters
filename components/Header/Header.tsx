@@ -74,11 +74,6 @@ export const Header = () => {
               Rooftop
             </Link>
           </li>
-          <li className={s.header__nav__list__item}>
-            <Link href="/privacy" className={s.header__nav__list__item__link}>
-              Política de privacidad
-            </Link>
-          </li>
         </ul>
       </nav>
 

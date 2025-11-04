@@ -1,6 +1,10 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import s from './page.module.scss'
 import lines6 from '@/public/delete/img/lines6.png'
+import linesLeft from '@/public/delete/img/lines4.png'
 import cover1 from '@/public/delete/img/room1.jpg'
 import cover2 from '@/public/delete/img/room2.jpg'
 import cover3 from '@/public/delete/img/hotel/room.png'
@@ -23,36 +27,43 @@ const cards = [
   { id: 6, title: 'Tema 6', image: cover1 },
 ]
 
-const BlogPage = async () => {
-  console.log('=== SERVER: Fetching blog data from Contentful ===')
+const BlogPage = () => {
+  const [blogData, setBlogData] = useState<HuntersBlog[]>([])
+  const [showAllPosts, setShowAllPosts] = useState(false)
+  const [dynamicPaddingBottom, setDynamicPaddingBottom] = useState(80)
+  const [isMobile, setIsMobile] = useState(false)
 
-  let blogData: HuntersBlog[] = []
-  let dynamicPaddingBottom = 80 // Valor por defecto
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const rawData = await getHuntersBlogDataNoLocale() || []
+        const filteredData = rawData.filter((item): item is HuntersBlog => item !== null)
+        setBlogData(filteredData)
+        
+        // Calcular espaciado dinámico
+        const padding = filteredData && filteredData.length > 0
+          ? Math.max(60, Math.min(180, 40 + (filteredData.length * 20)))
+          : 80
+        setDynamicPaddingBottom(padding)
+      } catch (error) {
+        console.log('Error fetching blog data:', error)
+      }
+    }
+    fetchData()
+  }, [])
 
-  try {
-    // Obtener los posts del blog desde Contentful
-    const rawData = await getHuntersBlogDataNoLocale() || []
-    blogData = rawData.filter((item): item is HuntersBlog => item !== null)
+  // Detectar si es mobile
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    handleResize() // Verificar al montar
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
-    console.log('SERVER: Blog data received:', blogData)
-    console.log('SERVER: Type of blogData:', typeof blogData)
-    console.log('SERVER: Is array?', Array.isArray(blogData))
-    console.log('SERVER: Number of blog posts:', blogData?.length || 0)
-    console.log('SERVER: blogData exists?', !!blogData)
-    console.log('SERVER: blogData.length > 0?', blogData && blogData.length > 0)
-
-    // Calcular espaciado dinámico basado en la cantidad de posts
-    // Más posts = más espacio, pero siempre razonable
-    dynamicPaddingBottom = blogData && blogData.length > 0
-      ? Math.max(60, Math.min(180, 40 + (blogData.length * 20))) // Entre 60px y 180px
-      : 80 // Espaciado por defecto cuando no hay posts
-
-    console.log('SERVER: Calculated padding bottom:', dynamicPaddingBottom, 'px')
-
-  } catch (error) {
-    console.log('SERVER: Error fetching blog data:', error)
-    console.error('SERVER: Full error details:', error)
-  }
+  console.log(blogData)
 
   return (
     <main
@@ -80,18 +91,12 @@ const BlogPage = async () => {
 
       {/* Mostrar el ÚLTIMO post como featured si existe */}
       {(() => {
-        console.log('RENDER: About to render featured section')
-        console.log('RENDER: blogData exists?', !!blogData)
-        console.log('RENDER: blogData.length:', blogData?.length)
-        console.log('RENDER: Condition result:', blogData && blogData.length > 0)
+       
         const lastIndex = blogData ? blogData.length - 1 : -1
-        console.log('RENDER: Last post index:', lastIndex)
-        console.log('RENDER: Featured post title:', blogData?.[lastIndex]?.title)
         return blogData && blogData.length > 0
       })() && (() => {
         const lastIndex = blogData.length - 1
         const featuredPost = blogData[lastIndex]
-        console.log('RENDER: Featured post (last):', featuredPost?.title)
         return (
           <section className={s.blog__featured}>
             <div className={s.blog__featured__card}>
@@ -126,7 +131,9 @@ const BlogPage = async () => {
 
       {/* Mostrar grid con posts reales (todos menos el último que es featured) */}
       <section className={s.blog__grid}>
-        {blogData && blogData.length > 1 && blogData.slice(0, -1).map((post) => ( // slice(0, -1) = todos menos el último
+        {blogData && blogData.length > 1 && blogData.slice(0, -1)
+          .slice(0, isMobile ? undefined : (showAllPosts ? undefined : 9)) // En mobile mostrar todos, en desktop limitar a 9
+          .map((post) => (
           <article key={post.sys.id} className={s.blog__grid__card}>
             <div
               className={s.blog__grid__card__cover}
@@ -138,9 +145,12 @@ const BlogPage = async () => {
               <h4 className={s.blog__grid__card__title}>{post.title}</h4>
               <p className={s.blog__grid__card__author}>Por: {post.postWritter}</p>
               <p>{post.superiorParagraph?.substring(0, 100)}...</p>
-              <Button href={`/blog/${post.title?.toLowerCase().replace(/\s+/g, '-')}`} className={s.blog__grid__card__button}>
-                Ver más
-              </Button>
+              <div className={s.blog__grid__card__button__wrapper}>
+                <Button href={`/blog/${post.title?.toLowerCase().replace(/\s+/g, '-')}`} 
+                className={s.blog__grid__card__button}>
+                  Ver más
+                </Button>
+              </div>
             </div>
           </article>
         ))}
@@ -167,11 +177,16 @@ const BlogPage = async () => {
       </section>
 
       <section className={s.blog__more}>
-        <Image src={lines6} alt="Lines" className={s.blog__more__lines} />
-        <Button href="#" className={s.blog__more__button}>
-          VER MÁS <IoArrowForwardCircleOutline size={24} />
-        </Button>
-        <Image src={map} alt="Decorative" className={s.blog__more__map} />
+      <Image src={linesLeft} alt="lines background" className={s.blog__more__lines__bg} />
+        {/* Mostrar botón solo si hay más de 3 posts (4 o más en total) */}
+        {blogData && blogData.length > 4 && (
+          <button 
+            onClick={() => setShowAllPosts(!showAllPosts)}
+            className={s.blog__more__button}
+          >
+            <span className={s.blog__more__button__label}>{showAllPosts ? 'VER MENOS' : 'VER MÁS'}</span> <IoArrowForwardCircleOutline size={24} />
+          </button>
+        )}
       </section>
     </main>
   )

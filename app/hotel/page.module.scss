@@ -2,738 +2,1752 @@
 
 .hotel {
   /* unified height for sections */
-  --section-height: 100vh;
-	&__hero {
-		position: relative;
-		min-height: 100vh;
-		display: grid;
-		align-items: center;
-		padding: 24px;
-		&::before {
-			content: '';
-			position: absolute;
-			inset: 0;
-			background: linear-gradient(90deg, rgba(6,11,7,0.9) 0%, rgba(6,11,7,0.6) 35%, rgba(6,11,7,0.1) 70%, rgba(6,11,7,0) 100%);
-			pointer-events: none;
-			z-index: 0;
-		}
-		&__video {
-			position: absolute;
-			inset: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
-		&__text { z-index: 1; max-width: 720px; margin: 0 auto; justify-self: center; text-align: center; }
-		&__title { font-size: 3rem; font-weight: 700; line-height: 1.05; display: grid; gap: 4px; }
-		&__title__row { display: inline-flex; align-items: center; gap: 10px; justify-content: center; }
-		&__title__light { font-weight: 400; font-style: italic; }
-		&__title__highlight {
-			color: #39E29D;
-			font-family: Montserrat, sans-serif;
-			font-size: 73px;
-			font-style: italic;
-			font-weight: 700;
-			/* requested typography */
-			line-height: 100%;
-			letter-spacing: 0%;
-			text-align: right;
-			justify-self: end;
-			text-transform: uppercase;
-		}
-		&__title__icon { display: inline-grid; place-items: center; color: var(--color-primary); }
-		&__title__city {
-			color: #FFF;
-			font-family: 'Montserrat Alternates', Montserrat, sans-serif;
-			font-size: 50px;
-			font-style: italic;
-			font-weight: 600;
-			line-height: normal;
-		}
-		&__title__icon { display: inline-grid; place-items: center; color: var(--color-primary); }
-		&__desc {
+  --section-height: 90vh;
+
+  /* ===========================================
+     SECCIÓN 1: HERO SECTION
+     =========================================== */
+  &__hero {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    align-items: center;
+    padding: 24px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(6, 11, 7, 0.9) 0%, rgba(6, 11, 7, 0.6) 35%, rgba(6, 11, 7, 0.1) 70%, rgba(6, 11, 7, 0) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    &__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__text {
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      justify-self: center;
+      text-align: center;
+    }
+
+    &__title {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.05;
+      display: grid;
+      gap: 4px;
+    }
+
+    &__title__row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    &__title__light {
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    &__title__highlight {
+      color: #39E29D;
+      font-family: Montserrat, sans-serif;
+      font-size: 4.5625rem;
+      font-style: italic;
+      font-weight: 700;
+      /* requested typography */
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-align: right;
+      justify-self: end;
+      text-transform: uppercase;
+    }
+
+    &__title__icon {
+      display: inline-grid;
+      place-items: center;
+      color: var(--color-primary);
+    }
+
+    &__title__city {
+      color: #FFF;
+      font-family: 'Montserrat Alternates', Montserrat, sans-serif;
+      font-size: 3.125rem;
+      font-style: italic;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    &__title__icon {
+      display: inline-grid;
+      place-items: center;
+      color: var(--color-primary);
+    }
+
+    &__desc {
       padding-left: 3%;
-			position: absolute;
-			left: 24px;
-			bottom: 66px;
-			margin-top: 0;
-			max-width: 520px;
-			text-align: left;
-			z-index: 1;
-			color: #FFFAC9;
-			font-family: Montserrat, sans-serif;
-			font-size: 24px;
-			font-style: normal;
-			font-weight: 700;
-			line-height: 165.615%;
-			@include mobile {
-				position: absolute; /* mantener abajo en mobile también */
-				left: 16px;
-				bottom: 24px;
-				max-width: calc(100% - 32px);
-			}
-		}
-		&__cta { position: absolute; right: 24px; bottom: 36px; z-index: 1; }
-		
-		/* Ajustes específicos para 1024px */
-		@media only screen and (max-width: 1024px) {
-			&__desc {
-				position: absolute;
-				left: 24px;
-				bottom: 66px;
-				max-width: calc(100% - 200px);
-				font-size: 22px;
-			}
-			&__cta {
-				position: absolute;
-				right: 24px;
-				bottom: 36px;
-				z-index: 1;
-			}
-		}
+      position: absolute;
+      left: 24px;
+      bottom: 66px;
+      margin-top: 0;
+      max-width: 520px;
+      text-align: left;
+      z-index: 1;
+      color: #FFFAC9;
+      font-family: Montserrat, sans-serif;
+      font-size: 1.5rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 165.615%;
 
-		/* Mobile ~425px: match compact centered layout */
-		@include custom-breakpoint(425px) {
-			padding: 12px;
-			row-gap: 10px;
-			&__text { max-width: 95%; text-align: center; grid-row: 1; }
-			&__title { font-size: 1.8rem; gap: 2px; }
-			&__title__row { gap: 6px; }
-			&__title__highlight { font-size: 42px; justify-self: center; text-align: center; }
-			&__title__city { font-size: 32px; }
-			&__desc {
-				position: static;
-				padding-left: 0;
-				text-align: center;
-				font-size: 16px;
-				max-width: 100%;
-				margin: var(--hero-desc-mobile-mt, 6px) auto 0;
-				grid-row: 3;
-			}
-			&__cta { position: static; margin: 10px auto 0; grid-row: 2; justify-self: center; }
-		}
-	}
+      @include mobile {
+        position: absolute;
+        /* mantener abajo en mobile también */
+        left: 16px;
+        bottom: 24px;
+        max-width: calc(100% - 32px);
+      }
+    }
 
-	.color { color: var(--color-primary); }
-	.italic { font-style: italic; }
-	.small { font-size: .9rem; padding: 8px 14px; }
+    &__cta {
+      position: absolute;
+      right: 24px;
+      bottom: 36px;
+      z-index: 1;
+    }
 
-	&__intro {
-		position: relative;
-		display: grid;
-		grid-template-columns: .8fr 1.2fr; /* ensanchar columna derecha */
-		gap: 24px;
-		padding: 0 16px;
-		align-items: center; /* vertical center of grid children */
-		/* Height knob for the whole section */
-		min-height: var(--intro-min-height, var(--section-height, 100vh));
-		@include mobile { grid-template-columns: 1fr; }
-		&__left { position: relative; padding: 16px 0; display: grid; justify-items: start; text-align: left; }
-		&__centered {
-			display: grid;
-			/* el contenedor (hijo) queda centrado dentro del padre */
-			justify-self: center;
-			margin: 0 auto;
-			max-width: 720px;
-			/* pero su contenido se alinea a la izquierda */
-			justify-items: start;
-			text-align: left;
-			align-items: center;
-		}
-		&__lines { position: absolute; inset: -40px 0 0 -16px; width: 120%; opacity: .35; pointer-events: none; }
-		&__ctaRow { display: flex; align-items: center; gap: 10px; justify-content: flex-start; }
-		&__cta {
-			position: static;
-			display: inline-flex;
-			align-items: center;
-			gap: 8px;
+    /* Ajustes específicos para 1024px */
+    @media only screen and (max-width: 1024px) {
+      &__desc {
+        position: absolute;
+        left: 24px;
+        bottom: 66px;
+        max-width: calc(100% - 200px);
+        font-size: 1.375rem;
+      }
 
-			/* Desktop styles (>425px) */
-			@media only screen and (min-width: 426px) {
-				font-family: 'Kantumruy', sans-serif;
-				font-weight: 700;
-				font-style: normal;
-				font-size: 24px;
-				line-height: 100%;
-				letter-spacing: 0%;
-				leading-trim: none;
-			}
-		}
-		&__ctaIcon { background: transparent; border: 2px solid #2ee6a8; border-radius: 999px; color: #2ee6a8; width: 44px; height: 44px; display: grid; place-items: center; }
-		&__title { font-size: 2.4rem; font-weight: 800; font-style: italic; line-height: 1.05; margin-top: 12px; text-align: left; }
-		&__title__hotel {
-			color: #FFF;
-			font-family: Montserrat, sans-serif;
-			font-size: 64px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-		}
-		&__title__hunters {
-			color: #39E29D;
-			font-family: Montserrat, sans-serif;
-			font-size: 64px;
-			font-style: italic;
-			font-weight: 800;
-			line-height: normal;
-		}
-		&__title__perfect {
-			color: #FFF;
-			font-family: 'Montserrat Alternates', Montserrat, sans-serif;
-			font-size: 60px;
-			font-style: italic;
-			font-weight: 700;
-			line-height: normal;
-		}
-		&__desc {
-			max-width: 520px;
-			margin-top: 10px;
-			text-align: left;
-			color: #FFFAC9;
-			font-family: 'Kantumruy', sans-serif;
-			font-size: 24px;
-			font-style: normal;
-			font-weight: 700;
-			line-height: 148.443%;
-		}
+      &__cta {
+        position: absolute;
+        right: 24px;
+        bottom: 36px;
+        z-index: 1;
+      }
+    }
 
-		&__gallery { display: 
-		grid; grid-template-columns: 1fr; /* una sola columna */
-		grid-auto-rows: var(--intro-row-height, 360px); gap: 14px; 
-		justify-self: end; /* alinear a la derecha */
-		align-self: center; /* centrar verticalmente */
-		width: 100%; }
-		.card { position: relative; border-radius: 6px; overflow: hidden; width: 100%; }
-		.card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; cursor: pointer; transition: transform .22s ease; will-change: transform; }
-		.card:hover img { transform: scale(1.06); }
-		.tall { grid-row: span 2; }
+    /* Mobile ~425px: match compact centered layout */
+    @include custom-breakpoint(425px) {
+      padding: 12px;
+      row-gap: 10px;
 
-		/* Mobile layout to match card-like design */
-		@include mobile {
-			&__gallery { order: 1; }
-			&__left {
-				order: 2;
-				position: relative;
-				display: grid;
-				justify-items: center;
-				text-align: center;
-				gap: 10px;
-				padding: 20px 16px 24px;
-				border-radius: 16px;
-				background:
-					radial-gradient(120% 120% at 50% 0%, rgba(57,226,157,0.08) 0%, rgba(6,11,7,0.85) 60%),
-					linear-gradient(180deg, rgba(6,11,7,0.65) 0%, rgba(6,11,7,0.95) 100%);
-			}
-			&__ctaRow { justify-content: center; }
-			&__ctaIcon { display: none; }
-			&__title { font-size: 1.9rem; margin-top: 0; }
-			&__title__hunters { color: #39E29D; }
-			&__title__hotel { font-size: 2.2rem; }
-			&__title__perfect { font-size: 2.1rem; }
-			&__desc { font-size: 0.95rem; line-height: 150%; max-width: 100%; margin-top: 6px; }
-		}
+      &__text {
+        max-width: 95%;
+        text-align: center;
+        grid-row: 1;
+      }
 
-		/* Extra small screens (425px and below): button at bottom right */
-		@include custom-breakpoint(425px) {
-			&__left {
-				position: relative;
-				display: block;
-				text-align: center;
-			}
-			&__centered {
-				display: flex;
-				flex-direction: column;
-				text-align: center;
-				align-items: center;
-			}
-			&__ctaRow {
-				order: 3; /* Move button to the bottom */
-				justify-content: flex-end;
-				align-self: flex-end; /* Align to the right */
-				margin-top: 16px;
-			}
-			&__title {
-				order: 1;
-			}
-			&__desc {
-				order: 2;
-			}
-			&__ctaRow > :last-child {
-				display: none; /* Hide the arrow icon */
-			}
-			&__lines { display: none; } /* Hide lines in mobile */
-		}
-	}
+      &__title {
+        font-size: 1.8rem;
+        gap: 2px;
+      }
 
-	&__rooms {
-		position: relative;
-		padding: 0 16px 0;
-		/* altura controlable de la sección */
-		--rooms-height: var(--section-height, 100vh); /* cambia este valor para subir/bajar la ALTURA */
-		height: var(--rooms-height);
-		/* knobs to move whole group easily */
-		--group-top: 30%;
-		--group-left: 50%;
-		/* scale knob to quickly reduce/increase the section size */
-		--group-scale: 0.85;
-		&__bg { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
-		&__overlay {
-			position: absolute;
-			inset: 0;
-			display: grid;
-			place-items: center;
-			text-align: center;
-			padding: 36px 24px 0; /* deja espacio para thumbs/CTA */
-			background:
-				linear-gradient(180deg, rgba(6,11,7,0.55) 0%, rgba(6,11,7,0.25) 50%, rgba(6,11,7,0.05) 100%),
-				radial-gradient(50% 50% at 50% 50%, rgba(6,11,7,0.35) 0%, rgba(6,11,7,0) 60%);
-			border-radius: 8px;
-			pointer-events: none;
-		}
-		&__group { position: absolute; top: var(--group-top); left: var(--group-left); transform: translate(-50%, -50%) scale(var(--group-scale)); transform-origin: center; width: 100%; display: grid; justify-items: center; gap: 14px; z-index: 2; pointer-events: none; }
-		&__title {
-			color: #FFF;
-			font-family: Montserrat, sans-serif;
-			font-size: 50px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-			pointer-events: none;
-		}
-		&__title__secondary {
-			color: #FFF;
-			font-family: Montserrat, sans-serif;
-			font-size: 50px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-		}
-		&__title__amenities {
-			color: #39E29D;
-			font-family: Montserrat, sans-serif;
-			font-size: 50px;
-			font-style: normal;
-			font-weight: 700;
-			line-height: normal;
-		}
-		&__icons { display: grid; grid-auto-flow: column; gap: 36px; }
-		&__icons li { display: grid; justify-items: center; gap: 6px; }
-		&__icons li svg { font-size: 56px; 
-      filter: drop-shadow(0 2px 10px rgba(0,0,0,.45)); }
-		&__icons li span { font-weight: 600; line-height: 1.05; 
-      text-shadow: 0 2px 14px rgba(0,0,0,.55); }
+      &__title__row {
+        gap: 6px;
+      }
 
-		&__thumbs { 
-		  position: absolute; 
-		  left: 25%; 
-		  right: auto; 
-		  top: 80%;
-		  transform: translateX(-50%);
-		  display: grid;
-		  grid-auto-flow: column; 
-		  gap: 14px; 
-		  width: fit-content;
-		  z-index: 2; }
-		&__thumb { background: rgba(0,0,0,.4); border-radius: 14px; overflow: hidden; height: 96px; box-shadow: 0 16px 40px rgba(0,0,0,.35); }
-		&__thumb img { width: 140px; height: 96px; object-fit: cover; cursor: pointer; transition: transform .22s ease; will-change: transform; }
-		&__thumb:hover img { transform: scale(1.08); }
+      &__title__highlight {
+        font-size: 2.625rem;
+        justify-self: center;
+        text-align: center;
+      }
 
-		&__ctaWrap { 
-		  position: absolute; 
-		  right: 24px; 
-		  bottom: 18px; 
-		  display: flex; align-items: center; gap: 8px; }
-		&__ctaWrap { 
-		  position: absolute; 
-		  right: 5%; 
-		  top: 85%; 
-		  transform: translateY(-50%);
-		  display: flex; 
-		  align-items: center; gap: 12px; z-index: 2; }
-		&__cta { padding: 12px 22px; box-shadow: 0 16px 40px rgba(0,0,0,.35); transform: translateZ(0); }
-		&__next { background: transparent; border: 0; color: var(--color-primary); display: grid; place-items: center; width: 48px; height: 48px; }
+      &__title__city {
+        font-size: 2rem;
+      }
 
-		/* Mobile: galería arriba y botón debajo */
-		@include mobile {
-			&__thumbs {
-				position: static;
-				left: auto; right: auto; top: auto;
-				transform: none;
-				display: grid;
-				grid-auto-flow: column;
-				gap: 12px;
-				justify-content: center;
-				width: 100%;
-				margin: var(--rooms-mobile-thumbs-mt, 0) 0 0;
-			}
-			&__ctaWrap {
-				position: static;
-				transform: none;
-				justify-content: center;
-				margin-top: var(--rooms-mobile-cta-mt, 8px);
-			}
-		}
-	}
+      &__desc {
+        position: static;
+        padding-left: 0;
+        text-align: center;
+        font-size: 1rem;
+        max-width: 100%;
+        margin: var(--hero-desc-mobile-mt, 6px) auto 0;
+        grid-row: 3;
+      }
 
-	&__benefits {
-		display: grid;
-		gap: 28px;
-		padding: 0 16px 0;
-		min-height: var(--section-height, 100vh);
+      &__cta {
+        position: static;
+        margin: 10px auto 0;
+        grid-row: 2;
+        justify-self: center;
+      }
+    }
+  }
 
-		&__breakfast {
-			position: relative;
-			min-height: 340px;
-			display: grid;
-			grid-template-columns: 1.1fr .9fr;
-			align-items: center;
-			background: transparent;
-			border-radius: 8px;
-			padding: 16px 20px;
-			isolation: isolate;
-			/* Controls to move/rotate/scale the top SVG band */
-			--band-x: 1000px;
-			--band-y: 0px;
-			--band-rotate: 20deg;
-			--band-scale: 1;
-			/* Gradient controls */
-			--grad-top: #39E29D; /* color solicitado para el inicio del degradado */
-			--grad-mid: rgba(6, 11, 7, 0.35);
-			--grad-bottom: rgba(6, 11, 7, 0.95);
-			/* Top decorative SVG band */
-			&::before { content: none; }
-			/* Overlay gradient similar to the mock: verde arriba -> oscuro abajo */
-			&::after {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				height: var(--grad-height, 1000px);
-				border-radius: inherit;
-				background:
-					linear-gradient(180deg,
-						var(--grad-top) 0%,
-						var(--grad-mid) 40%,
-						var(--grad-bottom) 90%
-					);
-				z-index: 2; /* sobre ::before y líneas, bajo texto/imagen */
-				pointer-events: none;
-			}
-			&__lines { position: absolute; inset: 0; opacity: .45;
-         pointer-events: none; }
-			&__lines { z-index: 1; }
-            &__text { position: relative; z-index: 5; 
-            --breakfast-text-y-desktop: 0; 
-            transform: translateY(var(--breakfast-text-y-desktop, var(--breakfast-text-y, 0))); will-change: transform; 
-            padding-top: var(--breakfast-pt, 0);
-            }
-			&__text h3 { margin: 0; padding-top:20%; }
-            &__titleTop {
-				color: #000;
-				font-family: Montserrat, sans-serif;
-				font-weight: 800;
-				font-style: italic;
-				font-size: 96px;
-				/* experimental property; safe to ignore in unsupported browsers */
-				line-height: 100%;
-				letter-spacing: 0%;
-				mix-blend-mode: normal;
-				text-shadow: none;
-            padding-left: 10%;
-			}
-			&__desayuno {
-				color: #000;
-				font-family: Montserrat, sans-serif;
-				font-weight: 800;
-				font-style: italic;
-				font-size: 96px;
-				/* experimental property; safe to ignore in unsupported browsers */
-				line-height: 100%;
-				letter-spacing: 0%;
-				mix-blend-mode: normal;
-				text-shadow: none;
+  .color {
+    color: var(--color-primary);
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  .small {
+    font-size: .9rem;
+    padding: 8px 14px;
+  }
+
+  /* ===========================================
+     SECCIÓN 2: INTRO SECTION
+     =========================================== */
+  &__intro {
+    position: relative;
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    /* ensanchar columna derecha */
+    gap: 24px;
+    padding: 0 16px;
+    align-items: center;
+    /* vertical center of grid children */
+    /* Height knob for the whole section */
+    min-height: var(--intro-min-height, var(--section-height, 100vh));
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+
+    &__left {
+      position: relative;
+      padding: 16px 0;
+      display: grid;
+      justify-items: start;
+      text-align: left;
+    }
+
+    &__centered {
+      display: grid;
+      /* el contenedor (hijo) queda centrado dentro del padre */
+      justify-self: center;
+      margin: 0 auto;
+      max-width: 720px;
+      /* pero su contenido se alinea a la izquierda */
+      justify-items: start;
+      text-align: left;
+      align-items: center;
+    }
+
+    &__lines {
+      position: absolute;
+      inset: -40px 0 0 -16px;
+      width: 120%;
+      opacity: .35;
+      pointer-events: none;
+    }
+
+    &__ctaRow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: flex-start;
+    }
+
+    &__cta {
+      position: static;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      /* Desktop styles (>425px) */
+      @media only screen and (min-width: 426px) {
+        font-family: 'Kantumruy', sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 1.5rem;
+        line-height: 100%;
+        letter-spacing: 0%;
+        leading-trim: none;
+      }
+    }
+
+    &__ctaIcon {
+      background: transparent;
+      border: 2px solid #2ee6a8;
+      border-radius: 999px;
+      color: #2ee6a8;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+    }
+
+    &__title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      font-style: italic;
+      line-height: 1.05;
+      margin-top: 12px;
+      text-align: left;
+    }
+
+    &__title__hotel {
+      color: #FFF;
+      font-family: Montserrat, sans-serif;
+      font-size: 4rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    &__title__hunters {
+      color: #39E29D;
+      font-family: Montserrat, sans-serif;
+      font-size: 4rem;
+      font-style: italic;
+      font-weight: 800;
+      line-height: normal;
+    }
+
+    &__title__perfect {
+      color: #FFF;
+      font-family: 'Montserrat Alternates', Montserrat, sans-serif;
+      font-size: 3.75rem;
+      font-style: italic;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    &__desc {
+      max-width: 520px;
+      margin-top: 10px;
+      text-align: left;
+      color: #FFFAC9;
+      font-family: 'Kantumruy', sans-serif;
+      font-size: 1.5rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 148.443%;
+    }
+
+    &__gallery {
+      display:
+        grid;
+      grid-template-columns: 1fr;
+      /* una sola columna */
+      grid-auto-rows: var(--intro-row-height, 360px);
+      gap: 14px;
+      justify-self: end;
+      /* alinear a la derecha */
+      align-self: center;
+      /* centrar verticalmente */
+      width: 100%;
+    }
+
+    .card {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      cursor: pointer;
+      transition: transform .22s ease;
+      will-change: transform;
+    }
+
+    .card:hover img {
+      transform: scale(1.06);
+    }
+
+    .tall {
+      grid-row: span 2;
+    }
+
+    /* Mobile layout to match card-like design */
+    @include mobile {
+      &__gallery {
+        order: 1;
+      }
+
+      &__left {
+        order: 2;
+        position: relative;
+        display: grid;
+        justify-items: center;
+        text-align: center;
+        gap: 10px;
+        padding: 20px 16px 24px;
+        border-radius: 16px;
+        background:
+          radial-gradient(120% 120% at 50% 0%, rgba(57, 226, 157, 0.08) 0%, rgba(6, 11, 7, 0.85) 60%),
+          linear-gradient(180deg, rgba(6, 11, 7, 0.65) 0%, rgba(6, 11, 7, 0.95) 100%);
+      }
+
+      &__ctaRow {
+        justify-content: center;
+      }
+
+      &__ctaIcon {
+        display: none;
+      }
+
+      &__title {
+        font-size: 1.9rem;
+        margin-top: 0;
+      }
+
+      &__title__hunters {
+        color: #39E29D;
+      }
+
+      &__title__hotel {
+        font-size: 2.2rem;
+      }
+
+      &__title__perfect {
+        font-size: 2.1rem;
+      }
+
+      &__desc {
+        font-size: 0.95rem;
+        line-height: 150%;
+        max-width: 100%;
+        margin-top: 6px;
+      }
+    }
+
+    /* Extra small screens (425px and below): button at bottom right */
+    @include custom-breakpoint(425px) {
+      &__left {
+        position: relative;
+        display: block;
+        text-align: center;
+      }
+
+      &__centered {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      &__ctaRow {
+        order: 3;
+        /* Move button to the bottom */
+        justify-content: flex-end;
+        align-self: flex-end;
+        /* Align to the right */
+        margin-top: 16px;
+      }
+
+      &__title {
+        order: 1;
+      }
+
+      &__desc {
+        order: 2;
+      }
+
+      &__ctaRow> :last-child {
+        display: none;
+        /* Hide the arrow icon */
+      }
+
+      &__lines {
+        display: none;
+      }
+
+      /* Hide lines in mobile */
+    }
+  }
+
+  /* ===========================================
+     SECCIÓN 3: ROOMS SECTION
+     =========================================== */
+  &__rooms {
+    position: relative;
+    padding: 0 16px 0;
+    /* altura controlable de la sección */
+    --rooms-height: var(--section-height, 100vh);
+    /* cambia este valor para subir/bajar la ALTURA */
+    height: var(--rooms-height);
+    /* knobs to move whole group easily */
+    --group-top: 30%;
+    --group-left: 50%;
+    /* scale knob to quickly reduce/increase the section size */
+    --group-scale: 0.85;
+
+    &__bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    &__overlay {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 36px 24px 0;
+      /* deja espacio para thumbs/CTA */
+      background:
+        linear-gradient(180deg, rgba(6, 11, 7, 0.55) 0%, rgba(6, 11, 7, 0.25) 50%, rgba(6, 11, 7, 0.05) 100%),
+        radial-gradient(50% 50% at 50% 50%, rgba(6, 11, 7, 0.35) 0%, rgba(6, 11, 7, 0) 60%);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    &__group {
+      position: absolute;
+      top: var(--group-top);
+      left: var(--group-left);
+      transform: translate(-50%, -50%) scale(var(--group-scale));
+      transform-origin: center;
+      width: 100%;
+      display: grid;
+      justify-items: center;
+      gap: 14px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    &__title {
+      color: #FFF;
+      font-family: Montserrat, sans-serif;
+      font-size: 3.125rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      pointer-events: none;
+    }
+
+    &__title__secondary {
+      color: #FFF;
+      font-family: Montserrat, sans-serif;
+      font-size: 3.125rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    &__title__amenities {
+      color: #39E29D;
+      font-family: Montserrat, sans-serif;
+      font-size: 3.125rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    &__icons {
+      display: grid;
+      grid-auto-flow: column;
+      gap: 36px;
+    }
+
+    &__icons li {
+      display: grid;
+      justify-items: center;
+      gap: 6px;
+    }
+
+    &__icons li svg {
+      font-size: 3.5rem;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, .45));
+    }
+
+    &__icons li span {
+      font-weight: 600;
+      line-height: 1.05;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, .55);
+    }
+
+    &__thumbs {
+      position: absolute;
+      left: 25%;
+      right: auto;
+      top: 80%;
+      transform: translateX(-50%);
+      display: grid;
+      grid-auto-flow: column;
+      gap: 14px;
+      width: fit-content;
+      z-index: 2;
+    }
+
+    &__thumb {
+      background: rgba(0, 0, 0, .4);
+      border-radius: 14px;
+      overflow: hidden;
+      height: 96px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
+    }
+
+    &__thumb img {
+      width: 140px;
+      height: 96px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform .22s ease;
+      will-change: transform;
+    }
+
+    &__thumb:hover img {
+      transform: scale(1.08);
+    }
+
+    &__ctaWrap {
+      position: absolute;
+      right: 24px;
+      bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    &__ctaWrap {
+      position: absolute;
+      right: 5%;
+      top: 85%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    &__cta {
+      padding: 12px 22px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
+      transform: translateZ(0);
+    }
+
+    &__next {
+      background: transparent;
+      border: 0;
+      color: var(--color-primary);
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+    }
+
+    /* Mobile: galería arriba y botón debajo */
+    @include mobile {
+      &__thumbs {
+        position: static;
+        left: auto;
+        right: auto;
+        top: auto;
+        transform: none;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 12px;
+        justify-content: center;
+        width: 100%;
+        margin: var(--rooms-mobile-thumbs-mt, 0) 0 0;
+      }
+
+      &__ctaWrap {
+        position: static;
+        transform: none;
+        justify-content: center;
+        margin-top: var(--rooms-mobile-cta-mt, 8px);
+      }
+    }
+  }
+
+  /* ===========================================
+     SECCIÓN 4: BENEFITS SECTION (ÚLTIMA SECCIÓN)
+     ⭐ ESTA ES LA ÚLTIMA SECCIÓN DEL HOTEL ⭐
+     Contiene: Breakfast + Policy subsections
+     =========================================== */
+  &__benefits {
+    display: grid;
+    gap: 28px;
+    padding: 0;
+    min-height: auto;  /* Solo la altura necesaria del contenido */
+
+   
+
+    /* === SUBSECCIÓN: BREAKFAST (dentro de Benefits) === */
+    &__breakfast {
+      position: relative;
+      min-height: 340px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      background: transparent;
+      border-radius: 8px;
+      padding: 16px 20px;
+      isolation: isolate;
+      overflow: hidden; /* prevent ::after gradient from overflowing at this breakpoint */
+
+      /* Media queries to control green header height */
+      @media (max-width: 1024px){
+        --grad-height: 700px !important; /* reduce green header height specifically for 1024px */
+      }
+
+      @media (max-width: 768px) {
+        --grad-height: 180% !important; /* reduce green header for 768px and below */
+        padding-left: 5% !important;
+        padding-right: 0 !important;
+        min-height: 280px; /* Reduce box height for 768px */
+      }
+
+      @media (max-width: 425px) {
+        --grad-height: 150% !important; /* reduce green header for 425px */
+      }
+
+      @media (max-width: 375px) {
+        --grad-height: 130% !important; /* ← AQUÍ edita el tamaño del header verde */
+        min-height: 100px;
+      }
+
+      /* Controls to move/rotate/scale the top SVG band */
+      --band-x: 1000px;
+      --band-y: 0px;
+      --band-rotate: 20deg;
+      --band-scale: 1;
+      /* Gradient controls */
+      --grad-top: #39E29D;
+      /* color solicitado para el inicio del degradado */
+      --grad-mid: rgba(6, 11, 7, 0.35);
+      --grad-bottom: rgba(6, 11, 7, 0.95);
+      
+      /* Header/green band height control - Edit these to resize the header band */
+      --grad-height-desktop: 1000px;
+      --grad-height-1024: 1000px;
+      --grad-height-768: 1000px;
+      --grad-height-425: 1000px;
+
+      /* Top decorative SVG band */
+      &::before {
+        content: none;
+      }
+
+      /* Overlay gradient similar to the mock: verde arriba -> oscuro abajo */
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--grad-height, 1000px); /* Base height - edit via CSS variables */
+        border-radius: inherit;
+        background:
+          linear-gradient(180deg,
+            var(--grad-top) 0%,
+            var(--grad-mid) 40%,
+            var(--grad-bottom) 90%);
+        z-index: 2;
+        /* sobre ::before y líneas, bajo texto/imagen */
+        pointer-events: none;
+      }
+
+      &__lines {
+        position: absolute;
+        inset: 0;
+        opacity: .45;
+        pointer-events: none;
+        z-index: 1;
+      
+      }
+
+      &__text {
+        position: relative;
+        z-index: 5;
+        --breakfast-text-y-desktop: 0;
+        transform: translateY(var(--breakfast-text-y-desktop, var(--breakfast-text-y, 0)));
+        will-change: transform;
+        padding-top: var(--breakfast-pt, 0);
+
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+          padding-top: 40px;
+          /* Add padding-top at 1024px to lower the text */
+        }
+
+        @media (max-width: 768px) {
+          transform: translateY(var(--breakfast-mobile-shift-y, 0px)) !important;
+        }
+
+        @media (max-width: 425px) {
+          transform: translateY(-60%) !important; /* ← AGREGAR ESTA LÍNEA */
+        }
+
+        @media (max-width: 375px) {
+          transform: translateY(-65%) !important; /* ← AGREGAR ESTA LÍNEA */
+        }
+      }
+
+      &__text h3 {
+        margin: var(--breakfast-h3-margin, 0);
+        padding-top: var(--breakfast-h3-pt, 20%);
+
+        @media (max-width: 768px) {
+          margin: var(--breakfast-h3-mobile-margin, 0) !important;
+          padding-top: var(--breakfast-h3-mobile-pt, 20%) !important;
+        }
+      }
+
+      &__titleTop {
+        color: #000;
+        font-family: Montserrat, sans-serif;
+        font-weight: 800;
+        font-style: italic;
+        font-size: clamp(2.5rem, 4vw, 6rem); /* Fluido: 1440px=6rem → 375px=2.5rem */
+        /* experimental property; safe to ignore in unsupported browsers */
+        line-height: 100%;
+        letter-spacing: 0%;
+        mix-blend-mode: normal;
+        text-shadow: none;
+        padding-left: 10%;
+
+        @media (max-width: 768px) {
+          text-align: left !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          font-size: 3rem !important;
+
+        }
+
+        @media (max-width: 425px) {
+          --titleMid-425-mt: -15px !important;
+          --titleMid-425-fs: 150px !important;
+          font-size: var(--titleMid-425-fs, 1.5rem) !important;
+          margin-top: var(--titleMid-425-mt, 0) !important;
+          padding-left: 5% !important;
+        }
+      }
+
+      &__desayuno {
+        color: #000;
+        font-family: Montserrat, sans-serif;
+        font-weight: 800;
+        font-style: italic;
+        font-size: clamp(2.5rem, 4vw, 6rem); /* Fluido: 1440px=6rem → 375px=2.5rem */
+
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+          font-size: 4.2rem;
+          /* 30% smaller at 1024px */
+        }
+
+        /* experimental property; safe to ignore in unsupported browsers */
+        line-height: 100%;
+        letter-spacing: 0%;
+        mix-blend-mode: normal;
+        text-shadow: none;
+
+        @media (max-width: 768px) {
+          font-family: Montserrat;
+          font-weight: 800;
+          font-style: italic;
+          font-size: 1.5rem !important;
+          leading-trim: NONE;
+          line-height: 100%;
+          letter-spacing: 0%;
+          font-size: var(--desayuno-768-fs, 3rem) !important;
+          margin-top: var(--desayuno-768-mt, 0) !important;
+        }
+        /* Media query específica para 425px */
+        @media (max-width: 425px) {
+          --desayuno-425-fs: 30px !important; /* Increased by 20% from 24px */
+          font-size: 1.5rem!important;
+          margin-top: var(--desayuno-425-mt, 0) !important;
+          display: block !important; /* Force "El desayuno" to be on its own line */
+        }
+
+         /* Media query específica para resolución 430x932 px (dispositivos móviles) */
+         @media (max-width: 430px) and (max-height: 932px) {
+          font-size: 1.875rem !important;
+        }
+
+        @media (max-width: 320px){
+          font-size: 1.5rem !important;
+        }
+
+
+      }
+
+      &__titleMid {
+        color: #FFF;
+        font-family: 'Montserrat Alternates', Montserrat, sans-serif;
+        font-weight: 600;
+        font-style: italic;
+        font-size: clamp(1.5rem, 2.8vw, 4rem); /* Fluido: 1440px=4rem → 375px=1.5rem */
+
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+          font-size: 2.8rem;
+          /* 30% smaller at 1024px */
+        }
+
+        /* experimental property; safe to ignore in unsupported browsers */
+        line-height: 100%;
+        letter-spacing: 0%;
+        padding-left: 10%;
+
+        @media (max-width: 768px) {
+          text-align: left !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          font-size: 1.875rem !important;
+          margin-top: -14% !important;
+          --titleMid-768-mt: -20px !important;
+        }
+
+
+        /* Media query específica para 425px */
+        @media (max-width: 425px) {
+          --titleMid-425-mt: -65% !important;
+          --titleMid-425-fs: 1.30rem !important;
+          font-size: var(--titleMid-425-fs, 1.5rem) !important;
+          margin-top: var(--titleMid-425-mt, 0) !important;
+          margin-bottom: -10% !important;
+          display: block !important; /* Ensure "viene incluido" is on its own line */
+        }
+
+        @media (max-width: 375px) {
+          --titleMid-425-mt: -75% !important;
+          --titleMid-425-fs: 1.2rem !important;
+          font-size: var(--titleMid-425-fs, 1.5rem) !important;
+          margin-top: var(--titleMid-425-mt, 0) !important;
+          margin-bottom: -10% !important;
+          display: block !important; /* Ensure "viene incluido" is on its own line */
+        }
+
+        @media (max-width: 320px) {
+          margin-top: -85% !important;
+        }
+
+      }
+
+      &__titleBottom {
+        color: #FFF;
+        font-family: 'Montserrat Alternates', Montserrat, sans-serif;
+        font-weight: 600;
+        font-style: italic;
+        font-size: clamp(1.25rem, 2.8vw, 4rem); /* Fluido: 1440px=4rem → 375px=1.25rem */
+
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+          font-size: 2.8rem;
+          /* 30% smaller at 1024px */
+        }
+
+        /* experimental property; safe to ignore in unsupported browsers */
+        line-height: 100%;
+        letter-spacing: 0%;
+        padding-left: 10%;
+
+        @media (max-width: 768px) {
+          text-align: left !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          font-size: 1.875rem !important;
+          margin-top: var(--titleBottom-768-mt, -14%) !important;
+        }
+
+        /* Media query específica para 425px */
+        @media (max-width: 425px) {
+          font-size: 1.30rem !important;
+          margin-top: -20% !important;
+        }
+
+        @media (max-width: 375px) {
+          font-size: 1.25rem !important;
+          margin-top: -20% !important;
+        }
+      }
+
+      &__note {
+        padding-left: 11%;
+        display: block;
+        margin-top: 6px;
+        color: rgba(255, 255, 255, .75);
+
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+          font-size: 0.7rem;
+          /* 30% smaller at 1024px (assuming base ~16px) */
+        }
+
+        @media (max-width: 768px) {
+          text-align: left !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          font-size: 0.875rem !important;
+        }
+
+        /* Media query específica para 768px */
+        @media (max-width: 768px) {
+          --note-768-pr: 40% !important;
+          padding-left: var(--note-768-pl, 0) !important;
+          padding-right: var(--note-768-pr, 0) !important;
+        }
+
+        /* Media query específica para 425px */
+        @media (max-width: 425px) {
+          --note-425-pr: 30% !important;
+          padding-left: var(--note-425-pl, 0) !important;
+          padding-right: var(--note-425-pr, 0) !important;
+        }
+      }
+
+      &__imageWrap {
+        display: grid;
+        place-items:
+          center;
+        justify-self: end;
+        align-self: start;
+        margin-top: -55px;
+        padding: 8px;
+        position: relative;
+        z-index: 3;
+
+        @media only screen and (max-width: 1023px) and (min-width: 769px) {
+          display: none;
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+          display: grid !important;
+          justify-self: end;
+          transform: translateX(var(--breakfast-image-1024-tx, -8%));
+        }
+
+        @include mobile {
+          display: block !important;
+          position: absolute;
+          top: 4%;
+          right: 4%;
+          width: 42vw;
+          margin: 0;
+          padding: 0;
+          z-index: 3;
+        }
+      }
+
+      &__imageWrap::after {
+        content: none;
+      }
+
+      &__image {
+        width: var(--breakfast-image-width, 620px);
+        height: auto;
+        border-radius: 50%;
+        box-shadow: none;
+        /* eliminar halo circular alrededor del plato */
+        --breakfast-rotate: 12deg;
+        transform: rotate(var(--breakfast-rotate, 100deg));
+        transform-origin: 50% 50%;
+
+        @media (max-width: 1024px) {
+          width: var(--breakfast-image-width-1024, 500px) !important;
+          padding-top: -50% !important;
+          margin-top: -20% !important;
+        }
+
+        @media (max-width: 768px) {
+          width: var(--breakfast-image-width-768, 380px) !important;
+        }
+
+        @media (max-width: 425px) {
+
+          width: var(--breakfast-image-width-425, 410px) !important;
+          padding-right: 90% !important;
+          padding-top: 60% !important;
+        }
+
+        @media (max-width: 430px) and (max-height: 932px) {
+          display: absolute;
+          width: var(--breakfast-image-width-425, 510px) !important;
+          padding-right: 130% !important;
+          padding-top: 90% !important;
+        }
+
+        @media (max-width: 375px) {
+          width: var(--breakfast-image-width-375, 370px) !important;
+          padding-right: 90% !important;
+          padding-top: 80% !important;
+        }
+
+      }
+    }
+
+    /* === SUBSECCIÓN: POLICY (dentro de Benefits) === */
+    &__policy {
+      position: relative;
+      min-height: 380px;
+      /* allow agent to float above section bounds */
+      z-index: 10;
+      margin-left: 60%; /* Move entire policy section to the right */
+
+      /* Media queries for specific margin-left control */
+      @media only screen and (max-width: 1024px) and (min-width: 769px) {
+        margin-left: -30%; /* Edit this value for 1024px */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+      }
+
+      @media (max-width: 768px) {
+        margin-left: 60%; /* Edit this value for 768px and below */
+      }
+
+      @media (max-width: 425px) {
+        margin-left: 60%; /* Edit this value for 425px and below */
+        padding-top: -30 !important;
+        margin-top: -35% !important;
+      }
+
+      @media (max-width: 320px) {
+        margin-top: -45% !important;
+
+      }
+
+      &__svg {
+        position: absolute;
+        bottom: -80%; /* Move SVG below the policy box */
+        left: -10%;
+        width: 135%;
+        height: 155%;
+        z-index: 1;
+        pointer-events: none;
+
+        /* Floating SVG for 1024px and smaller */
+        @media (max-width: 1024px) {
+          position: fixed; /* Float independently */
+          bottom: var(--svg-bottom, 0); /* Editable position */
+          left: var(--svg-left, 0); /* Editable position */
+          width: 100vw; /* Full viewport width */
+          height: auto; /* Auto height */
+          z-index: -1; /* Behind everything */
+          pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+          bottom: var(--svg-bottom-mobile, 0);
+          left: var(--svg-left-mobile, 0);
+        }
+
+        @media (max-width: 425px) {
+          bottom: -60%;
+          left: var(--svg-left-425, 0);
+        }
+
+        &__image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.75;
+          /* Muy sutil para no competir */
+        }
+      }
+
+      &__lines {
+        position: absolute;
+        bottom: var(--lines-bottom, 0); /* Edit to move up/down */
+        top: auto; /* Remove top positioning */
+        left: -120%; /* Edit to move left/right */
+        right: auto;
+        width: 100vw; /* Full viewport width */
+        height: 100%;
+        max-width: 100vw;
+        pointer-events: none;
+        z-index: 0; /* Behind everything */
+
+        @media (max-width: 1024px) {
+          bottom: 0;
+          left: 20%;
+        }
+
+        /* detrás de texto e imagen */
+        @media (max-width: 768px) {
+          /* Variables CSS para mover en mobile */
+          bottom: 0;
+          left: -160%;
+          width: 100vw;
+          z-index: 0;
+        }
+
+        @media (max-width: 425px) {
+          bottom: 5%;
+          left: -160%;
+        }
+      }
+
+      &__agent {
+        position: absolute;
+        left: -200%;
+        bottom: -1%;
+        width: 150%;
+        height: 195%;
+        z-index: 100;
+
+        @media (max-width: 1024px) {
+          position: absolute;
+          left: 3%;
+          bottom: 0;
+          width: 55%;
+          height: 150%;
+        }
+
+        @media (max-width: 768px) {
+          position: absolute;
+          left: -205%;
+          bottom: 0;
+          width: 180%;
+          height: 140%;
+        }
+
+        @media (max-width: 425px) {
+          position: absolute;
+          left: -230%;
+          bottom: 5%;
+          width: 240%;
+          height: 110%;
+        }
+
+        @media (max-width: 375px) {
+          left: -255%;
+          bottom: 0%;
+          width: 290%;
+          height: 110%;
+        }
+
+        @media (max-width: 320px) {
+          left: -260%;
+          bottom: 5%;
+          width: 320%;
+          height: 110%;
+        }
+
+      }
+
+      /* Texto flotante fuera de la caja negra */
+      &__text {
+        position: absolute;
+        --policy-right: 17%;
+        right: var(--policy-right, 8%);
+        top: -20%;
+        max-width: min(70vw, 1200px);
+        text-align: right;
+        color: #fff;
+        z-index: 15; /* High z-index to float above everything */
+        transform: translateX(var(--policy-text-shift, 0));
+        margin-left: -100px;
         
-			}
-            &__titleMid {
-				color: #FFF;
-				font-family: 'Montserrat Alternates', Montserrat, sans-serif;
-				font-weight: 600;
-				font-style: italic;
-				font-size: 64px;
-				/* experimental property; safe to ignore in unsupported browsers */
-				line-height: 100%;
-				letter-spacing: 0%;
-            padding-left: 10%;
 
-			}
-            &__titleBottom {
-				color: #FFF;
-				font-family: 'Montserrat Alternates', Montserrat, sans-serif;
-				font-weight: 600;
-				font-style: italic;
-				font-size: 64px;
-				/* experimental property; safe to ignore in unsupported browsers */
-				line-height: 100%;
-				letter-spacing: 0%;
-            padding-left: 10%;
-			}
-            &__note { padding-left: 11%; display: block; margin-top: 6px; color: rgba(255,255,255,.75); }
-			&__imageWrap { 
-        display: grid; 
-        place-items: 
-        center; 
-        justify-self: end; 
-        align-self: start; 
-        margin-top: -55px; 
-        padding: 8px; position: relative; z-index: 3; 
-        @media only screen and (max-width: 1023px) {
-          display: none;
+        @media (max-width: 1024){
+          position: relative;
+          right: auto;
+          left: auto;
+          top: auto;
+          max-width: 100%;
+          margin-left: 38%;
+          transform: translateX(-10%);
+          z-index: 15; /* Keep floating above everything */
+          flex: 1;
+          display: block !important;
+          text-align: right !important;
+        }
+
+        @media (max-width: 768px) {
+          position: relative;
+          right: auto;
+          left: -60%;
+          top: auto;
+          width: 100% !important; /* full width to the right */
+          max-width: 100%;
+          padding-left: 0;
+          padding-right: 0;
+          margin-left: 0;
+          transform: none !important;
+          z-index: 15;
+          flex: 1;
+          display: block !important;
+          justify-content: center;
+          padding-top: var(--policy-text-mobile-mt, 20px) !important;
+          text-align: right !important;
+        }
+
+        @media (max-width: 425px) {
+          position: relative;
+          right: auto;
+          left: -95%;
+          top: 7%;
+          width: 100% !important; /* full width to the right */
+          max-width: 100%;
+          padding-left: 0;
+          padding-right: 0;
+          margin-left: 0;
+          transform: none !important;
+          z-index: 15;
+          flex: 1;
+          display: block !important;
+          justify-content: center;
+          padding-top: var(--policy-text-mobile-mt, 20px) !important;
+          text-align: right !important;
         }
       }
-			&__imageWrap::after { content: none; }
-			&__image { 
-			        width: 620px; 
-			        height: auto; 
-			        border-radius: 50%;
-			        box-shadow: none; /* eliminar halo circular alrededor del plato */
-              --breakfast-rotate:12deg;
-			        transform: rotate(var(--breakfast-rotate, 100deg));
-			        transform-origin: 50% 50%;
-			}
-		}
 
-		&__policy {
-			position: relative;
-			min-height: 380px;
-			background: #050905;
-			border-radius: 8px;
-			overflow: visible; /* allow agent to float above section bounds */
-			padding: 16px 20px;
-			z-index: 10; /* stack above previous green overlays */
-			&__lines { position: absolute; inset: 0; opacity: .35; 
-        pointer-events: none; z-index: 0; }
-			&__agent { 
-        position: absolute; 
-        left: -20%; bottom: -20%; width: 60%; height: 190%; z-index: 100;
-        @media only screen and (max-width: 1023px) {
-          display: none;
-        }
+      &__text h3 {
+        font-size: clamp(1.375rem, 2.2vw, 2.125rem);
+        line-height: 1.1;
+        margin: 0;
       }
-			&__text { 
-			position: absolute; 
-      right: var(--policy-right, 8%); 
-      top: 24px; max-width: min(48vw, 780px); 
-      text-align: right; 
-      color: #fff; z-index: 2; 
-      transform: translateX(var(--policy-text-shift, 0)); }
-			&__text h3 { font-size: clamp(22px, 2.2vw, 34px); line-height: 1.1; margin: 0; }
-			&__oneline { white-space: nowrap; }
-			&__emph {
-				color: var(--color-primary);
-				font-family: Montserrat, sans-serif;
-				font-weight: 700;
-				font-style: italic;
-				font-size: 73px;
-				line-height: 100%;
-				letter-spacing: 0;
-				text-align: right;
-				display: inline-block;
-				white-space: nowrap;
-				&__word1 { display: inline; }
-				&__word2 { display: inline; }
-			}
-			&__subline {
-				color: #FFF;
-				font-family: Montserrat, sans-serif;
-				font-weight: 400;
-				font-style: normal;
-				font-size: clamp(18px, 2.4vw, 28px);
-				/* experimental property; safe to ignore in unsupported browsers */
-				line-height: 100%;
-				letter-spacing: 0%;
-				text-align: right;
-				display: inline-block;
-			}
-			&__politica {
-				color: #FFF;
-				font-family: Montserrat, sans-serif;
-				font-weight: 400;
-				font-style: normal;
-				font-size: 50px;
-				line-height: 100%;
-				letter-spacing: 0;
-				text-align: right;
-				display: inline-block;
+
+      &__oneline {
+        white-space: nowrap;
+      }
+
+      &__emph {
+        color: var(--color-primary);
+        font-family: Montserrat, sans-serif;
+        font-weight: 700;
+        font-style: italic;
+        font-size: clamp(1.5rem, 3.2vw, 4.5625rem); /* Fluido: 1440px=4.56rem → 375px=1.5rem */
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: right;
+        display: inline;
+        white-space: nowrap;
+        margin-left: 30px; // ← Agregado para mover más a la derecha
+        padding-right: 10px;
+
+        @media (max-width: 1024px){
+          font-size: 3.65rem;
+          /* 20% smaller at 1024px */
+        }
+
+        @media (max-width: 768px) {
+          font-size: var(--emph-mobile-fs, 2.5rem) !important;
+        }
+
+        @media (max-width: 425px) {
+          font-size: var(--emph-mobile-fs, 1.5rem) !important;
+          margin-left: 27% !important;
+        }
+
+        @media (max-width: 375px) {
+          margin-left: 40% !important;
+          font-size: var(--emph-mobile-fs, 1.25rem) !important;
+        }
+
+        /* Media query específica para 320px - mover "cancelación gratuita" a la izquierda */
+        @media (max-width: 320px) {
+          margin-left: 18% !important; /* Mueve a la izquierda */
+          font-size: 1.25rem !important; /* Ajusta tamaño si es necesario */
+        }
+
+        &__word1 {
+          display: inline;
+          margin-right: 8px;
+         
+        }
+
+        &__word2 {
+          display: inline;
+
+          @media only screen and (max-width: 1024px) and (min-width: 769px) {
+            font-size: 3.285rem;
+            /* Additional 10% smaller at 1024px */
+          }
+        }
+
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+          &__word1 {
+            font-size: 3.285rem;
+            /* Additional 10% smaller at 1024px */
+          }
+        }
+
+      }
+
+      &__subline {
+        color: #FFF;
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: clamp(1.125rem, 2.4vw, 1.75rem);
+        /* experimental property; safe to ignore in unsupported browsers */
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: right;
+        display: inline-block;
+      }
+
+      &__politica {
+        color: #FFF;
+        font-family: Montserrat;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: clamp(1.25rem, 2.8vw, 4rem); /* Fluido: 1440px=4rem → 375px=1.25rem */
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: right;
+        display: inline-block; /* permite control de línea */
+        white-space: nowrap;   /* una sola línea */
+        word-break: keep-all;  /* no dividir palabras */
+        overflow-wrap: normal; /* no forzar saltos */
+        hyphens: none;         /* sin guiones automáticos */
         margin-left: 200px;
-			}
-			&__tarifas {
-				color: #FFF;
-				font-family: Montserrat, sans-serif;
-				font-weight: 400;
-				font-style: normal;
-				font-size: 50px;
-				line-height: 100%;
-				letter-spacing: 0;
-				text-align: right;
-				display: inline-block;
-				white-space: nowrap;
-				&__word1 { display: inline; }
-				&__word2 { display: inline; }
-			}
-			&__text p { margin-top: 18px; font-size: clamp(18px, 2.4vw, 30px); }
-			&__serv {
-				color: #FFF;
-				font-family: Montserrat, sans-serif;
-				font-weight: 400;
-				font-style: normal;
-				font-size: 64px;
-				line-height: 100%;
-				letter-spacing: 0;
-				text-align: right;
-				display: inline-block;
+        padding-right: 10px;
+        
+
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+          font-size: 3.2rem;
+        }
+
+        @media (max-width: 768px) {
+          font-size: var(--politica-mobile-fs, 2.5rem) !important;
+          margin-left: 70% !important;
+        }
+
+        @media (max-width: 425px) {
+          font-size: var(--politica-mobile-fs, 1.5rem) !important;
+          margin-left: 90% !important;
+        }
+
+        @media (max-width: 375px) {
+          margin-left: 100% !important;
+          font-size: var(--politica-mobile-fs, 1.25rem) !important;
+        }
+
+        @media (max-width: 320px) {
+          margin-left: 90% !important;
+          font-size: var(--politica-mobile-fs, 1.25rem) !important;
+        }
+      }
+
+      &__tarifas {
+        color: #FFF;
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: clamp(1rem, 2.2vw, 3.125rem); /* Fluido: 1440px=3.125rem → 375px=1rem */
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: right;
+        display: inline-block;
+        white-space: nowrap;
+        margin-right: -100px;
+
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+          font-size: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+          font-size: var(--tarifas-768-fs, 1.875rem) !important;
+        }
+
+        @media (max-width: 425px) {
+          font-size: var(--tarifas-425-fs, 1.5rem) !important;
+          padding-left: -10% !important;
+
+        }
+
+        /* Media query específica para 375px - reducir tamaño del texto */
+        @media (max-width: 375px) {
+          font-size: 1.25rem !important; /* Reduce el tamaño del texto completo */
+          padding-left: -15% !important; /* Ajusta posición si es necesario */
+        }
+
+        @media (max-width: 320px) {
+          font-size: 1.125rem !important; /* Reduce el tamaño del texto completo */
+          padding-left: 20% !important; /* Ajusta posición si es necesario */
+        }
+
+        &__word1 {
+          display: inline;
+          padding-right: 2px;
+
+          @media (max-width: 768px) {
+            display: inline !important;
+            margin-bottom: 0 !important;
+            padding-right: 2px !important;
+            margin-right: 1% !important;
+            font-size: 0.9em;
+          }
+
+          @media (max-width: 425px) {
+            display: inline !important;
+            margin-bottom: 0 !important;
+            padding-right: 2px !important;
+            font-size: 1.125rem;
+          }
+
+          /* Media query específica para 375px - reducir tamaño "en la mayoría de" */
+          @media (max-width: 375px) {
+            display: inline !important;
+            font-size: 1.125rem !important; /* Reduce tamaño de la primera parte */
+            margin-left: 18% !important;
+          }
+
+          @media (max-width: 320px) {
+            margin-left: 6% !important;
+          }
+        }
+
+        &__word2 {
+          display: inline;
+          padding-right: 100px;
+          white-space: nowrap;
+
+          @media (max-width: 768px) {
+            padding-right: 0 !important;
+            margin-left: 0 !important;
+            display: inline !important;
+            white-space: nowrap !important;       /* no cortar "nuestras tarifas" */
+            word-break: keep-all !important;       /* evita partir palabras */
+            overflow-wrap: normal !important;      /* sin envoltura forzada */
+            hyphens: none !important;              /* sin guiones automáticos */
+            font-size: 0.9em;
+            margin-right: -6% !important;
+          }
+
+          @media (max-width: 425px) {
+            padding-right: 0 !important;
+            margin-left: 0 !important;
+            display: inline !important;
+            white-space: nowrap !important;       /* no cortar en 425px */
+            word-break: keep-all !important;
+            overflow-wrap: normal !important;
+            hyphens: none !important;
+            font-size: 1.125rem;
+          }
+
+          @media (max-width: 375px) {
+            padding-right: 0 !important;
+            margin-left: 25% !important;
+            display: block !important;
+          }
+
+          @media (max-width: 320px) {
+            margin-left: -20% !important;
+          }
+        }
+      }
+
+      &__text p {
+        margin-top: 18px;
+        font-size: clamp(1.125rem, 2.4vw, 1.875rem);
+      }
+
+      &__serv {
+        color: #FFF;
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: clamp(1.25rem, 2.8vw, 4rem); /* Fluido: 1440px=4rem → 375px=1.25rem */
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: right;
+        display: inline;
+        white-space: nowrap; /* Keep on one line */
         --ys-pr: 100px;
+        padding-right: 10px;
         padding-right: var(--ys-pr, 0);
-			}
-			&__y {
-				color: #FFF;
-				font-family: Montserrat, sans-serif;
-				font-weight: 400;
-				font-style: normal;
-				font-size: 64px;
-				line-height: 100%;
-				letter-spacing: 0;
-				text-align: right;
-				display: inline-block;
-				margin-right: 12px; /* separa 'y' de 'servicio' */
-				padding-left: var(--ys-pl, 0); /* desplaza la primera línea hacia la derecha */
-			}
-			/* Ensure 'recepción' matches exactly the same style as 'servicio en' */
-			&__recep {
-				color: #FFF;
-				font-family: Montserrat, sans-serif;
-				font-weight: 400;
-				font-style: normal;
-				font-size: 64px;
-				line-height: 100%;
-				letter-spacing: 0;
-				text-align: right;
-				display: inline-block;
-			}
-			/* Keep 'recepción 24/7' on one line and align baselines nicely */
-			&__pair { white-space: nowrap; display: inline-flex; align-items: baseline; gap: 6px; }
-			&__pair { white-space: nowrap; display: inline-block; }
-			&__time {
-				color: #39E29D;
-				font-family: Montserrat, sans-serif;
-				font-weight: 700;
-				font-style: italic;
-				font-size: 73px;
-				line-height: 100%;
-				letter-spacing: 0;
-				text-align: right;
-				display: inline-block;
-			}
-			/* Bloque completo: "y servicio en" + salto + "recepción 24/7" */
-			&__ys {
-				display: block;
+
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+          font-size: 3.2rem;
+          /* 20% smaller at 1024px */
+        }
+
+        /* Media query específica para 768px */
+        @media (max-width: 768px) {
+          font-size: var(--tarifas-768-fs, 1.875rem) !important;
+        }
+
+        /* Media query específica para 425px */
+        @media (max-width: 425px) {
+          font-size: var(--tarifas-425-fs, 1.5rem) !important;
+        }
+
+        @media (max-width: 375px) {
+          font-size: 1.125rem !important;
+        }
+
+      
+      }
+
+      &__y {
+        color: #FFF;
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: clamp(1.25rem, 2.8vw, 4rem); /* Fluido: 1440px=4rem → 375px=1.25rem */
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: right;
+        display: inline;
+        white-space: nowrap; /* Keep on one line */
+        margin-right: 6px;
+        /* separa 'y' de 'servicio' - reducido */
+        padding-right: 10px;
+        padding-left: var(--ys-pl, 0);
+        /* desplaza la primera línea hacia la derecha */
+
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+          font-size: 3.2rem;
+          /* 20% smaller at 1024px */
+        }
+
+        /* Media query específica para 768px */
+        @media (max-width: 768px) {
+          font-size: var(--tarifas-768-fs, 1.875rem) !important;
+        }
+
+        /* Media query específica para 425px */
+        @media (max-width: 425px) {
+          font-size: var(--tarifas-425-fs, 1.5rem) !important;
+          padding-left: 85% !important;
+
+        }
+        @media (max-width: 375px) {
+          font-size: 1.125rem !important;
+        }
+      }
+
+      /* Ensure 'recepción' matches exactly the same style as 'servicio en' */
+      &__recep {
+        color: #FFF;
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: clamp(1.25rem, 2.8vw, 4rem); /* Fluido: 1440px=4rem → 375px=1.25rem */
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: right;
+        display: inline;
+        padding-right: 10px;
+
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+          font-size: 3.2rem;
+          /* 20% smaller at 1024px */
+        }
+
+        /* Media query específica para 768px */
+        @media (max-width: 768px) {
+          font-size: var(--tarifas-768-fs, 1.875rem) !important;
+        }
+
+        /* Media query específica para 425px */
+        @media (max-width: 425px) {
+          font-size: var(--tarifas-425-fs, 1.5rem) !important;
+          padding-left: 62% !important;
+
+        }
+
+        /* Media query específica para 375px - mover "recepción" */
+        @media (max-width: 375px) {
+          font-size: 1.125rem !important; /* Establece 18px específicamente para "recepción" */
+          padding-left: 40% !important; /* Mueve "recepción" a la izquierda */
+          margin-left: -10px !important;
+        }
+
+      
+      }
+
+      /* Keep 'recepción 24/7' on one line and align baselines nicely */
+      &__pair {
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: baseline;
+
+        /* Media query específica para 375px - mover todo el bloque "recepción 24/7" */
+        @media (max-width: 375px) {
+          margin-left: 70% !important; /* Mueve todo el bloque a la izquierda */
+        }
+
+        @media (max-width: 320px) {
+          margin-left: 55% !important;
+        }
+      }
+
+      &__time {
+        color: #39E29D;
+        font-family: Montserrat, sans-serif;
+        font-weight: 700;
+        font-style: italic;
+        font-size: clamp(1.5rem, 3.2vw, 4.5625rem); /* Fluido: 1440px=4.56rem → 375px=1.5rem */
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: right;
+        display: inline;
+        padding-right: 10px;
+
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+          font-size: 3.65rem;
+          /* 20% smaller at 1024px */
+        }
+
+        /* Media query específica para 768px */
+        @media (max-width: 768px) {
+          font-size: var(--tarifas-768-fs, 1.875rem) !important;
+        }
+
+        /* Media query específica para 425px */
+        @media (max-width: 425px) {
+          font-size: var(--tarifas-425-fs, 1.5rem) !important;
+        }
+
+        /* Media query específica para 375px - mover "24/7" */
+        @media (max-width: 375px) {
+          font-size: 1.25rem !important;
+          padding-right: 5px !important; /* Ajusta separación con "recepción" */
+          margin-left: -5px !important; /* Mueve "24/7" a la izquierda */
+        }
+      }
+
+      /* Bloque completo: "y servicio en" + salto + "recepción 24/7" */
+      &__ys {
+        display: block;
         --ys-pt: 34px;
-				padding-top: var(--ys-pt, 0);
-				margin-top: var(--ys-mt, 0);
-			}
-		}
+        --ys-mobile-ml: 0px;
+        /* Variable para mover en mobile */
+        --ys-mobile-pt: 12px;
+        /* Variable para padding-top en mobile */
+        padding-top: var(--ys-pt, 0);
+        margin-top: var(--ys-mt, 0);
+        margin-left: 150px; // ← Mueve el texto a la derecha
 
-		/* Mobile: center texts in the last section */
-		@include mobile {
-			&__breakfast {
-				&__text {
-					text-align: center;
-					justify-self: center;
-					margin: 0 auto;
-					display: grid;
-					justify-items: center;
-					width: 100%;
-					/* allow horizontal nudge on mobile */
-                transform: translate(
-                  var(--breakfast-mobile-shift-x, 0),
-                  var(--breakfast-text-y-mobile, var(--breakfast-text-y-desktop, 0))
-                );
-				}
-				&__titleTop, &__titleMid, &__titleBottom { padding-left: 0; display: block; margin: 0 auto; }
-				&__note { padding-left: 0; text-align: center; }
-			}
-			&__policy {
-				&__text {
-					position: static;
-					right: auto; left: auto; top: auto;
-					max-width: 100%;
-					text-align: center;
-					transform: translateX(var(--policy-mobile-shift-x, 0));
-					margin: 0 auto;
-				}
-				&__subline, &__emph, &__tarifas, &__serv, &__recep, &__time { text-align: center; }
-				&__politica { margin-left: 0; display: inline; }
-				&__serv { padding-right: 0; }
-				&__emph { white-space: normal; display: inline; }
-				&__emph__word2 { display: block; }
-				&__tarifas { white-space: normal; display: inline; }
-				&__tarifas__word2 { display: block; }
-			}
-		}
+        @media (max-width: 768px) {
+          text-align: right !important;
+          margin-left: var(--ys-mobile-ml, 0) !important;
+          padding-left: var(--ys-mobile-padding-left, 0) !important;
+          padding-top: var(--ys-mobile-pt, 12px) !important;
+        }
 
-		/* Extra small screens (425px and below): reduce text size and center */
-		@include custom-breakpoint(425px) {
-			&__breakfast {
-				&__text {
-					padding-top: 10%;
-				}
-				&__titleTop {
-					font-size: 48px;
-				}
-				&__desayuno {
-					font-size: 48px;
-				}
-				&__titleMid {
-					font-size: 32px;
-				}
-				&__titleBottom {
-					font-size: 32px;
-				}
-				&__note {
-					font-size: 14px;
-				}
-			}
-			&__policy {
-				&__text h3 {
-					font-size: 18px;
-				}
-				&__politica {
-					font-size: 24px;
-				}
-				&__emph {
-					font-size: 32px;
-				}
-				&__tarifas {
-					font-size: 24px;
-				}
-				&__text p {
-					font-size: 16px;
-				}
-				&__serv {
-					font-size: 28px;
-				}
-				&__y {
-					font-size: 28px;
-				}
-				&__recep {
-					font-size: 28px;
-				}
-				&__time {
-					font-size: 32px;
-				}
-			}
-		}
-	}
+        @media (max-width: 425px) {
+          text-align: right !important;
+          margin-left: var(--ys-mobile-ml, 0) !important;
+          padding-left: var(--ys-mobile-padding-left, 0) !important;
+          padding-top: var(--ys-mobile-pt, 12px) !important;
+        }
+
+        @media (max-width: 375px) {
+          margin-left: -40% !important;
+        }
+
+        /* Media query específico para 320px - mover "y servicio en recepción 24/7" más a la izquierda */
+      
+      }
+    }
+  }
 }
-
-

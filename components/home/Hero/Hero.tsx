@@ -32,7 +32,7 @@ export const Hero = () => {
 				preload="none"
 				className={s.hero__video}
 			>
-				<source src="/delete/videos/hunter-home-video.mp4" type="video/mp4" />
+				<source src="/menu/hotel.mp4" type="video/mp4" />
 			</video>
 		</section>
 	)

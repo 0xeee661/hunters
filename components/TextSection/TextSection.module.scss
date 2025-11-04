@@ -22,5 +22,15 @@
       font-size: 1.5rem;
     }
   }
+
+  &__content {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 24px;
+    leading-trim: NONE;
+    line-height: 101%;
+    letter-spacing: 0%;
+  }
 }
 

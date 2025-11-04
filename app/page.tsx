@@ -8,6 +8,7 @@ import s from './page.module.scss'
 import { Experiences } from 'components/home/Experiences/Experiences'
 import { TextSection } from '@/components/TextSection/TextSection'
 import { getTextInnerAreasDataNoLocale } from '@/lib/api'
+import Footer from '@/components/Footer/Footer'
 
 const Home = async () => {
 	// Obtener datos de textInnerAreas sin locale
@@ -16,27 +17,21 @@ const Home = async () => {
 	// Filtrar nulls para asegurar compatibilidad de tipos
 	const textInnerAreasData = testDataNoLocale?.filter((item): item is NonNullable<typeof item> => item !== null) || []
 
-	console.log('HOME PAGE: TextInnerAreas data:', textInnerAreasData)
-	console.log('HOME PAGE: Total items:', textInnerAreasData?.length || 0)
-
 	// Preparar data para cada TextSection - índice 0 para el primero, índice 1 para el segundo
 	const firstTextSectionData = textInnerAreasData?.[0] ? [textInnerAreasData[0]] : []
 	const secondTextSectionData = textInnerAreasData?.[1] ? [textInnerAreasData[1]] : []
-
-	console.log('HOME PAGE: First TextSection (index 0):', firstTextSectionData[0]?.textInnerArea)
-	console.log('HOME PAGE: Second TextSection (index 1):', secondTextSectionData[0]?.textInnerArea)
-
 	return (
 		<main className={s.home}>
 			<Hero />
-			<TextSection textData={firstTextSectionData} />
+			{/* <TextSection textData={firstTextSectionData} /> */}
 			<RoomHero />
 			<Spaces />
-      <TextSection textData={secondTextSectionData} />
+      {/* <TextSection textData={secondTextSectionData} /> */}
 			<Places />
 			<Map />
 			<Experiences />
 			<ScrollIndicator />
+      <Footer />
 		</main>
 	)
 }

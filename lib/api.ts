@@ -22,12 +22,12 @@ async function fetchGraphQL({
 	data: Query
 }> {
 	return fetch(
-		`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
+		`https://graphql.contentful.com/content/v1/spaces/1pjko1eowomd`,
 		{
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+				Authorization: `Bearer FfuoUZ_mulFz0FlT9QGHW7Ab0Z6vdm3aBBCpEXWJZLU`,
 			},
 			body: JSON.stringify({ query: getGqlString(query), variables }),
 			next,
@@ -47,21 +47,15 @@ export const getAlliancesData = async ({ preview, locale }: GetData) => {
 // Función muy simple para probar conexión básica
 export const getHuntersBlogSimple = async () => {
 	try {
-		console.log('API: Testing very simple hunters-blog query')
 
 		const response = await fetchGraphQL({
 			query: huntersBlogSimple,
 		})
 
-		console.log('API: Simple response received')
-		console.log('API: Simple response data:', response.data)
-
 		const data = response.data?.huntersBlogCollection?.items
-		console.log('API: Simple extracted items:', data)
 
 		return data
 	} catch (error) {
-		console.error('API: Error in getHuntersBlogSimple:', error)
 		throw error
 	}
 }
@@ -69,7 +63,6 @@ export const getHuntersBlogSimple = async () => {
 // Función de prueba para textInnerAreas sin locale
 export const getTextInnerAreasDataNoLocale = async () => {
 	try {
-		console.log('API: Testing textInnerAreas without locale')
 
 		const response = await fetchGraphQL({
 			query: gql`
@@ -84,14 +77,10 @@ export const getTextInnerAreasDataNoLocale = async () => {
 			`,
 		})
 
-		console.log('API: No locale TextInnerAreas response:', response.data)
-
 		const data = response.data?.textInnerAreasCollection?.items
-		console.log('API: No locale extracted textInnerAreas items:', data)
 
 		return data
 	} catch (error) {
-		console.error('API: Error in getTextInnerAreasDataNoLocale:', error)
 		throw error
 	}
 }
@@ -99,28 +88,21 @@ export const getTextInnerAreasDataNoLocale = async () => {
 // Función de prueba sin locale
 export const getHuntersBlogDataNoLocale = async () => {
 	try {
-		console.log('API: Testing hunters-blog data without locale')
 
 		const response = await fetchGraphQL({
 			query: huntersBlogDataNoLocale,
 		})
 
-		console.log('API: No locale response received')
-		console.log('API: No locale response data:', response.data)
-
 		const data = response.data?.huntersBlogCollection?.items
-		console.log('API: No locale extracted items:', data)
 
 		return data
 	} catch (error) {
-		console.error('API: Error in getHuntersBlogDataNoLocale:', error)
 		throw error
 	}
 }
 
 export const getHuntersBlogData = async ({ preview, locale }: GetData) => {
 	try {
-		console.log('API: Fetching hunters-blog data with params:', { preview, locale })
 
 		const response = await fetchGraphQL({
 			query: huntersBlogData,
@@ -129,18 +111,15 @@ export const getHuntersBlogData = async ({ preview, locale }: GetData) => {
 		})
 
 		const data = response.data?.huntersBlogCollection?.items
-		console.log('API: Extracted items:', data)
 
 		return data
 	} catch (error) {
-		console.error('API: Error in getHuntersBlogData:', error)
 		throw error
 	}
 }
 
 export const getTextInnerAreasData = async ({ preview, locale }: GetData) => {
 	try {
-		console.log('API: Fetching text-inner-areas data with params:', { preview, locale })
 
 		const response = await fetchGraphQL({
 			query: textInnerAreasData,
@@ -150,11 +129,9 @@ export const getTextInnerAreasData = async ({ preview, locale }: GetData) => {
 
 
 		const data = response.data?.textInnerAreasCollection?.items
-		console.log('API: Extracted textInnerAreas items:', data)
 
 		return data
 	} catch (error) {
-		console.error('API.: Error in getTextInnerAreasData:', error)
 		throw error
 	}
 }

@@ -12,6 +12,23 @@ import Link from 'next/link'
 import { WHATSAPP_LINK } from '@/lib/constants/app'
 import { Gallery, Item } from 'react-photoswipe-gallery'
 import 'photoswipe/dist/photoswipe.css'
+import { TextSection } from '@/components/TextSection/TextSection'
+import Footer from '@/components/Footer/Footer'
+
+const desired = [
+  '/menu/menu1.jpg',
+  '/menu/menu2.jpg',
+  '/menu/menu3.jpg',
+  '/menu/menu4.jpg',
+  '/menu/menu5.jpg',
+  '/menu/menu6.jpg',
+]
+const textData = [
+  {
+    sys: { id: '1' },
+    textInnerArea: " Un punto de encuentro donde el buen gusto se siente en cada detalle.En Linze, la gastronomía se mezcla con la energía de la música, los cócteles y las conversaciones que fluyen sin prisa. Creado para quienes disfrutan de los sabores bien hechos, las atmósferas relajadas y las experiencias que se sienten auténticas.Vení a probar, a brindar o simplemente a dejarte llevar.En Linze, el momento siempre se siente justo."
+  }
+]
 
 const RestaurantPage = () => {
 	return (
@@ -19,15 +36,8 @@ const RestaurantPage = () => {
 			<section className={s.restaurant__hero}>
 				<h1 className={s.restaurant__hero__title}>
 					<span className={s.restaurant__hero__title__color}>
-            <Image src="/menu/linze.png" alt="Linze" width={200} height={200} />
+            <Image src="/menu/linzeLogo.png" alt="Linze" width={200} height={200} />
           </span>
-					<span className={s.restaurant__hero__title__subtitle}>
-          Un punto de encuentro donde el buen gusto se siente en cada detalle.
-En Linze, la gastronomía se mezcla con la energía de la música, los cócteles y las conversaciones que fluyen sin prisa. Creado para quienes disfrutan de los sabores bien hechos, las atmósferas relajadas y las experiencias que se sienten auténticas.
-
-Vení a probar, a brindar o simplemente a dejarte llevar.
-En Linze, el momento siempre se siente justo.
-					</span>
 				</h1>
 				<video
 					autoPlay
@@ -40,6 +50,7 @@ En Linze, el momento siempre se siente justo.
 					<source src="/menu/restauranteVideo.mp4" type="video/mp4" />
 				</video>
 			</section>
+      <TextSection textData={textData} />
 			<section className={s.restaurant__content}>
 				<div className={s.restaurant__content__container}>
 					<Image
@@ -81,9 +92,8 @@ En Linze, el momento siempre se siente justo.
 				</div>
 				<div className={s.restaurant__content__cards}>
 					<Link
-						href="/restaurant"
-						/* target="_blank"
-						rel="noopener noreferrer" */
+						href="/menu/Carta%20Linze%20club.pdf"
+            target="_blank"
 						className={s.restaurant__content__cards__card}
 						style={{
 							backgroundImage: `url(${menu2.src})`,
@@ -117,24 +127,28 @@ En Linze, el momento siempre se siente justo.
 					</Link>
 					<Gallery>
 						{(() => {
-							// Lista deseada sin repetidos; usar Set para deduplicar por src
-							const desired = [
-								'/menu/menu3.jpg',
-								'/menu/menu5.jpg',
-								'/menu/menu6.jpg',
-								'/menu/menu7.jpg',
-								'/menu/menu8.jpg',
-								'/menu/menu9.jpg',
-								'/menu/menu10.jpg',
+							// Lista de imágenes con dimensiones específicas para cada una
+							const images = [
+								{ src: '/menu/restaurant/rest1.png', w: 700, h: 600 },
+								{ src: '/menu/restaurant/rest2.jpg', w: 600, h: 800 },
+								{ src: '/menu/restaurant/rest3.jpg', w: 500, h: 500 },
+								{ src: '/menu/restaurant/rest4.jpg', w: 550, h: 750 },
+								{ src: '/menu/restaurant/rest5.jpg', w: 650, h: 450 },
+								{ src: '/menu/restaurant/rest6.jpg', w: 500, h: 700 },
+								{ src: '/menu/restaurant/rest7.jpg', w: 500, h: 550 },
+								{ src: '/menu/restaurant/rest8.jpg', w: 600, h: 650 },
+								{ src: '/menu/restaurant/rest9.jpg', w: 550, h: 600 },
+								{ src: '/menu/restaurant/rest10.jpg', w: 500, h: 500 },
+								{ src: '/menu/restaurant/rest11.jpg', w: 500, h: 550 },
+								{ src: '/menu/restaurant/rest12.jpg', w: 600, h: 700 },
 							]
-							const unique = Array.from(new Set(desired))
-							// map a objetos con dimensiones razonables; Photoswipe mantiene proporciones sin estirar
-							// usar dimensiones de menu2.jpg para todos los ítems
-							return unique.map((src) => ({
-								src,
-								w: 700,
-								h: 800,
-							}))
+
+							// Eliminar duplicados por src si es necesario
+							const uniqueImages = images.filter((image, index, self) =>
+								index === self.findIndex(img => img.src === image.src)
+							)
+
+							return uniqueImages
 						})().map((img, index) => (
 							<Item key={index} original={img.src} thumbnail={img.src} width={img.w} height={img.h}>
 								{({ ref, open }) =>
@@ -159,6 +173,7 @@ En Linze, el momento siempre se siente justo.
 					</Gallery>
 				</div>
 			</section>
+			<Footer />
 		</main>
 	)
 }

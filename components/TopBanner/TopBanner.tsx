@@ -36,7 +36,7 @@ export const TopBanner: React.FC = () => {
       <div className={styles.container}>
         <p className={styles.text}>
           {messages[index]}{' '}
-          <a href="tel:+1234567890" className={styles.link}>
+          <a href="tel:+573116810440" className={styles.link}>
             LLamar
           </a>
         </p>

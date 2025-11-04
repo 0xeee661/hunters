@@ -11,6 +11,7 @@ import Link from 'next/link'
 import { WHATSAPP_LINK } from '@/lib/constants/app'
 import { Gallery, Item } from 'react-photoswipe-gallery'
 import 'photoswipe/dist/photoswipe.css'
+import Footer from '@/components/Footer/Footer'
 
 const RooftopPage = () => {
   return (
@@ -32,7 +33,8 @@ const RooftopPage = () => {
           <source src="/delete/videos/spaces2.mp4" type="video/mp4" />
         </video>
       </section>
-      <section className={s.rooftop__content}>
+
+     {/* <section className={s.rooftop__content}>
         <div className={s.rooftop__content__container}>
           <Image
             src={restaurant1}
@@ -40,7 +42,6 @@ const RooftopPage = () => {
             className={s.rooftop__content__container__image}
           />
 
-          {/* Iconos sociales posicionados en la sección de contenido */}
           <div className={s.rooftop__content__social}>
             <a
               href="https://www.facebook.com/p/Hunters-Concept-Hotel-100063919069916/"
@@ -74,14 +75,13 @@ const RooftopPage = () => {
         </div>
         <div className={s.rooftop__content__cards}>
           <Link
-            href="/menu/Carta%20Linze%20club.pdf"
-            target="_blank"
+            href=""
             rel="noopener noreferrer"
             className={s.rooftop__content__cards__card}
             style={{
               backgroundImage: `url(${restaurant2.src})`,
             }}
-          >
+          > 
             <span className={s.rooftop__content__cards__card__text}>
               MENÚ{' '}
               <IoArrowForwardCircleOutline
@@ -144,7 +144,8 @@ const RooftopPage = () => {
             )}
           </Gallery>
         </div>
-      </section>
+      </section> */}
+      <Footer />
     </main>
   )
 }
