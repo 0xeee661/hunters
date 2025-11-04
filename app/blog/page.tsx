@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import s from './page.module.scss'
-import lines6 from '@/public/delete/img/lines6.png'
 import linesLeft from '@/public/delete/img/lines4.png'
 import cover1 from '@/public/delete/img/room1.jpg'
 import cover2 from '@/public/delete/img/room2.jpg'
@@ -11,7 +10,6 @@ import cover3 from '@/public/delete/img/hotel/room.png'
 import cover4 from '@/public/delete/img/hotel/room2.png'
 import cover5 from '@/public/delete/img/restaurant3.jpg'
 import cover6 from '@/public/delete/img/restaurant4.jpg'
-import map from '@/public/delete/img/map.svg'
 import { Button } from '@/components/ui/Button/Button'
 import { HiHeart } from 'react-icons/hi'
 import { IoArrowForwardCircleOutline } from 'react-icons/io5'
@@ -91,8 +89,6 @@ const BlogPage = () => {
 
       {/* Mostrar el ÚLTIMO post como featured si existe */}
       {(() => {
-       
-        const lastIndex = blogData ? blogData.length - 1 : -1
         return blogData && blogData.length > 0
       })() && (() => {
         const lastIndex = blogData.length - 1

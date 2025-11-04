@@ -12,7 +12,6 @@ import cover4 from '@/public/delete/img/hotel/room.png'
 import layerImg from '@/public/delete/img/layer.png'
 import breakfastImg from '@/public/delete/img/hotel/desayuno.png'
 import attendantImg from '@/public/menu/agent.png'
-import servicesSVG from '@/public/delete/img/services.svg'
 import linesLeft from '@/public/delete/img/lines4.png'
 import { Button } from '@/components/ui/Button/Button'
 import { IoArrowForwardCircleOutline } from 'react-icons/io5'
@@ -27,7 +26,6 @@ import {
   IoBedOutline,
   IoSnowOutline,
 } from 'react-icons/io5'
-import Footer from '@/components/Footer/Footer'
 
 const HotelPage = () => {
   const { toggleBooking } = use(AppContext)
