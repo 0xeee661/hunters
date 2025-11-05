@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import s from '../tema-principal/page.module.scss'
 import { getHuntersBlogDataNoLocale } from '@/lib/api'
+import slugify from '@/utils/helpers/slugify'
 import type { HuntersBlog } from '@/types/graphql/graphql'
 
 type Props = { params: Promise<{ slug: string }> }
@@ -12,11 +13,9 @@ export default async function BlogTemaPage({ params }: Props) {
   const blogData = await getHuntersBlogDataNoLocale()
 
   // El slug ya está en el formato correcto del título (first-content)
-  const postTitle = slug?.toLowerCase()
-
-  // Buscar el post por título exacto
+  // Buscar el post por slug generado a partir del título (sin emojis/diacríticos)
   const post = blogData?.find((p): p is HuntersBlog =>
-    p?.title?.toLowerCase() === postTitle
+    !!p?.title && slugify(p.title) === slug
   )
 
   if (!post) {
