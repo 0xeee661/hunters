@@ -124,8 +124,8 @@ const RestaurantPage = () => {
 						{(() => {
 							// Lista de imágenes con dimensiones específicas para cada una
 							const images = [
-								{ src: '/menu/restaurant/rest1.png', w: 700, h: 600 },
-								{ src: '/menu/restaurant/rest2.jpg', w: 600, h: 800 },
+								{ src: '/menu/restaurant/rest1.png', w: 600, h: 600 },
+								{ src: '/menu/restaurant/rest2.jpg', w: 550, h: 800 },
 								{ src: '/menu/restaurant/rest3.jpg', w: 500, h: 500 },
 								{ src: '/menu/restaurant/rest4.jpg', w: 550, h: 750 },
 								{ src: '/menu/restaurant/rest5.jpg', w: 650, h: 450 },
@@ -133,8 +133,8 @@ const RestaurantPage = () => {
 								{ src: '/menu/restaurant/rest7.jpg', w: 500, h: 550 },
 								{ src: '/menu/restaurant/rest8.jpg', w: 600, h: 650 },
 								{ src: '/menu/restaurant/rest9.jpg', w: 550, h: 600 },
-								{ src: '/menu/restaurant/rest10.jpg', w: 500, h: 500 },
-								{ src: '/menu/restaurant/rest11.jpg', w: 500, h: 550 },
+								{ src: '/menu/restaurant/rest10.jpg', w: 350, h: 500 },
+								{ src: '/menu/restaurant/rest11.jpg', w: 370, h: 500 },
 								{ src: '/menu/restaurant/rest12.jpg', w: 600, h: 700 },
 							]
 
