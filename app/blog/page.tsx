@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import s from './page.module.scss'
-import linesLeft from '@/public/delete/img/lines4.png'
 import cover1 from '@/public/delete/img/room1.jpg'
 import cover2 from '@/public/delete/img/room2.jpg'
 import cover3 from '@/public/delete/img/hotel/room.png'
