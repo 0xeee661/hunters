@@ -80,6 +80,7 @@ export const Header = () => {
       <Link href="/" className={s.header__logo}>
         <Image src={logo} alt="logo" width={185} height={85} />
       </Link>
+
       <div
         className={`${s.header__menu} ${isMenuOpen ? s.open : ''}`}
         aria-hidden={!isMenuOpen}
@@ -112,29 +113,11 @@ export const Header = () => {
           </li>
           <li className={s.header__menu__list__item}>
             <Link
-              href="/blog"
-              className={s.header__menu__list__item__link}
-              onClick={toggleMenu}
-            >
-              Blog
-            </Link>
-          </li>
-          <li className={s.header__menu__list__item}>
-            <Link
               href="/room"
               className={s.header__menu__list__item__link}
               onClick={toggleMenu}
             >
-              Habitación
-            </Link>
-          </li>
-          <li className={s.header__menu__list__item}>
-            <Link
-              href="/contact"
-              className={s.header__menu__list__item__link}
-              onClick={toggleMenu}
-            >
-              Contáctanos
+               Habitación
             </Link>
           </li>
           <li className={s.header__menu__list__item}>
@@ -166,13 +149,23 @@ export const Header = () => {
           </li>
           <li className={s.header__menu__list__item}>
             <Link
-              href="/privacy"
+              href="/blog"
               className={s.header__menu__list__item__link}
               onClick={toggleMenu}
             >
-              Política de privacidad
+              Blog
             </Link>
           </li>
+          <li className={s.header__menu__list__item}>
+            <Link
+              href="/contact"
+              className={s.header__menu__list__item__link}
+              onClick={toggleMenu}
+            >
+              Contactanos
+            </Link>
+          </li>
+          
         </ul>
       </div>
       {isMenuOpen && (
