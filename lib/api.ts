@@ -2,7 +2,7 @@ import { alliancesData, huntersBlogData, huntersBlogDataNoLocale, huntersBlogSim
 import { gql } from 'graphql-tag'
 import { Query } from '@/types/graphql/graphql'
 import { getGqlString } from '@/utils/helpers/getGqlString'
-import { DEFAULT_LOCALE, AVAILABLE_LOCALES, type SupportedLocale } from '@/config/locales'
+import { DEFAULT_LOCALE, type SupportedLocale } from '@/config/locales'
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core'
 
 type GetData = {
