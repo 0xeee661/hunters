@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import s from './page.module.scss'
 import lines from '@/public/delete/img/lines5.png'
 import cover1 from '@/public/delete/img/room1.jpg'
@@ -29,7 +30,15 @@ import {
 import Footer from '@/components/Footer/Footer'
 
 const HotelPage = () => {
+  const router = useRouter()
   const { toggleBooking } = use(AppContext)
+
+  /**
+   * Navega a la página de habitaciones
+   */
+  const handleViewRooms = () => {
+    router.push('/room')
+  }
 
   return (
     <main className={s.hotel}>
@@ -151,7 +160,12 @@ const HotelPage = () => {
         </Gallery>
 
         <div className={s.hotel__rooms__ctaWrap}>
-          <Button className={s.hotel__rooms__cta}>VER HABITACIONES</Button>
+          <Button 
+            className={s.hotel__rooms__cta}
+            onClick={handleViewRooms}
+          >
+            VER HABITACIONES
+          </Button>
           <IoArrowForwardCircleOutline size={50} />
         </div>
 

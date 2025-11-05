@@ -102,8 +102,8 @@ export const huntersBlogData = gql`
 `
 
 export const textInnerAreasData = gql`
-	query TextInnerAreasData($locale: String) {
-		textInnerAreasCollection(locale: $locale) {
+	query TextInnerAreasData($locale: String, $preview: Boolean) {
+		textInnerAreasCollection(locale: $locale, preview: $preview) {
 			items {
 				sys {
 					id
