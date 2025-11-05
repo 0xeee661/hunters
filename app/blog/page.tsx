@@ -15,6 +15,7 @@ import { IoArrowForwardCircleOutline } from 'react-icons/io5'
 import { getHuntersBlogDataNoLocale } from '@/lib/api'
 import type { HuntersBlog } from '@/types/graphql/graphql'
 import Footer from '@/components/Footer/Footer'
+import slugify from '@/utils/helpers/slugify'
 
 const cards = [
   { id: 1, title: 'Tema 1', image: cover2 },
@@ -143,7 +144,7 @@ const BlogPage = () => {
               <p>{post.superiorParagraph?.substring(0, 100)}...</p>
               
               <div className={s.blog__grid__card__button__wrapper}>
-                <Button href={`/blog/${post.title?.toLowerCase().replace(/\s+/g, '-')}`} 
+                <Button href={`/blog/${slugify(post.title)}`} 
                 className={s.blog__grid__card__button}>
                   Ver más
                 </Button>
@@ -165,7 +166,7 @@ const BlogPage = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua.
               </p>
-              <Button href={`/blog/${card.title.toLowerCase().replace(/\s+/g, '-')}`} className={s.blog__grid__card__button}>
+              <Button href={`/blog/${slugify(card.title)}`} className={s.blog__grid__card__button}>
                 Ver más
               </Button>
             </div>
