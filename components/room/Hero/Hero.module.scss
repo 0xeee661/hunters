@@ -66,6 +66,8 @@
 
 		:global(.slick-slide) {
 			padding: 0 7px;
+			display: flex;
+			justify-content: center; /* centra cada imagen dentro del slide */
 		}
 
 		:global(.slick-prev) {
@@ -81,10 +83,12 @@
 		}
 
 		&__item {
-			width: 100%;
+			width: 178px !important;   /* tamaño fijo para todas las imágenes */
+			height: 169px !important;
 			object-fit: cover;
 			border-radius: 20px;
 			cursor: pointer;
+			display: block;
 		}
 	}
 
