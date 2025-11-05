@@ -175,7 +175,6 @@ const BlogPage = () => {
       </section>
 
       <section className={s.blog__more}>
-      <Image src={linesLeft} alt="lines background" className={s.blog__more__lines__bg} />
         {/* Mostrar botón solo si hay más de 3 posts (4 o más en total) */}
         {blogData && blogData.length > 4 && (
           <button 
