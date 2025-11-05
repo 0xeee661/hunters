@@ -50,6 +50,45 @@
 				justify-content: center;
 				justify-self: end;
 
+				/* Floating modifier: allows absolute positioning with cardinal helpers */
+        &__image {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          left: 5%;
+          bottom: 0;
+          z-index: 3;
+        }
+
+				/* Cardinal helpers */
+				&--top-left {
+					top: var(--logo-top, 1rem);
+					left: var(--logo-left, 1rem);
+					right: auto;
+					bottom: auto;
+				}
+
+				&--top-right {
+					top: var(--logo-top, 1rem);
+					right: var(--logo-right, 1rem);
+					left: auto;
+					bottom: auto;
+				}
+
+				&--bottom-left {
+					bottom: var(--logo-bottom, 1rem);
+					left: var(--logo-left, 1rem);
+					top: auto;
+					right: auto;
+				}
+
+				&--bottom-right {
+					bottom: var(--logo-bottom, 1rem);
+					right: var(--logo-right, 1rem);
+					top: auto;
+					left: auto;
+				}
+
 				img {
 					width: 200px;
 					height: auto;
@@ -74,7 +113,7 @@
 				@media (max-width: 425px) {
 					align-self: center;
 					margin-top: var(--logo-mobile-top-margin, 4rem);
-					padding-right: 20%;
+					padding-right: var(--logo-mobile-right-padding, 20%);
 				}
 			}
 			&__subtitle {
@@ -216,4 +255,9 @@
 			}
 		}
 	}
+}
+
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }

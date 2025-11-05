@@ -69,9 +69,17 @@
 		}
 		&__cols {
 			display: grid;
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: 1fr; /* una columna para texto centrado */
+			justify-items: center; /* centrar contenido horizontalmente */
 			gap: 24px;
 			margin: 12px 0 24px;
+
+			/* párrafo principal centrado y ancho amplio */
+			p {
+				max-width: min(1100px, 90vw);
+				width: 100%;
+				text-align: center;
+			}
 			@include mobile {
 				grid-template-columns: 1fr;
 			}

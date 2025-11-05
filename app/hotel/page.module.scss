@@ -23,6 +23,19 @@
       z-index: 0;
     }
 
+    /* Sombra superior similar a la sección restaurante */
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 35%;
+      background: linear-gradient(180deg, rgba(6, 11, 7, 0.85) 0%, rgba(6, 11, 7, 0) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     &__video {
       position: absolute;
       inset: 0;
@@ -108,7 +121,7 @@
       font-size: 1.5rem;
       font-style: normal;
       font-weight: 700;
-      line-height: 165.615%;
+      line-height: 1.8rem;
 
       @include mobile {
         position: absolute;

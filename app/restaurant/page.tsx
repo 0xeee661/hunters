@@ -27,7 +27,9 @@ const RestaurantPage = () => {
 			<section className={s.restaurant__hero}>
 				<h1 className={s.restaurant__hero__title}>
 					<span className={s.restaurant__hero__title__color}>
-            <Image src="/menu/linzeLogo.png" alt="Linze" width={200} height={200} />
+            <Image 
+            className={s.restaurant__hero__title__color__image}
+            src="/menu/linzeLogo.png" alt="Linze" width={200} height={200} />
           </span>
 				</h1>
 				<video
@@ -41,8 +43,10 @@ const RestaurantPage = () => {
 					<source src="/menu/restauranteVideo.mp4" type="video/mp4" />
 				</video>
 			</section>
+      
       <TextSection textData={textData} />
-			<section className={s.restaurant__content}>
+			
+      <section className={s.restaurant__content}>
 				<div className={s.restaurant__content__container}>
 					<Image
 						src={menu1}
@@ -164,7 +168,8 @@ const RestaurantPage = () => {
 					</Gallery>
 				</div>
 			</section>
-			<Footer />
+			
+      <Footer />
 		</main>
 	)
 }

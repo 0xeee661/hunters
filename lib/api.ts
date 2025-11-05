@@ -21,13 +21,16 @@ async function fetchGraphQL({
 }): Promise<{
 	data: Query
 }> {
+	const spaceId = process.env.CONTENTFUL_SPACE_ID || '1pjko1eowomd'
+	const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN || 'FfuoUZ_mulFz0FlT9QGHW7Ab0Z6vdm3aBBCpEXWJZLU'
+
 	return fetch(
-		`https://graphql.contentful.com/content/v1/spaces/1pjko1eowomd`,
+		`https://graphql.contentful.com/content/v1/spaces/${spaceId}`,
 		{
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `Bearer FfuoUZ_mulFz0FlT9QGHW7Ab0Z6vdm3aBBCpEXWJZLU`,
+				Authorization: `Bearer ${accessToken}`,
 			},
 			body: JSON.stringify({ query: getGqlString(query), variables }),
 			next,

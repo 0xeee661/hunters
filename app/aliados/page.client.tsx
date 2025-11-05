@@ -9,6 +9,7 @@ import {
 	Map as MapGoogle,
 	Marker,
 } from '@vis.gl/react-google-maps'
+import Footer from '@/components/Footer/Footer'
 
 export const Allies = ({ data }: { data?: Maybe<Ally>[] }) => {
 	const [currentAlly, setCurrentAlly] = useState<Maybe<Ally>>()
@@ -140,6 +141,11 @@ export const Allies = ({ data }: { data?: Maybe<Ally>[] }) => {
 					</div>
 				</APIProvider>
 			)}
+    
+    <Footer />
+
 		</main>
+
+    
 	)
 }

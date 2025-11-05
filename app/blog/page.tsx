@@ -15,6 +15,7 @@ import { HiHeart } from 'react-icons/hi'
 import { IoArrowForwardCircleOutline } from 'react-icons/io5'
 import { getHuntersBlogDataNoLocale } from '@/lib/api'
 import type { HuntersBlog } from '@/types/graphql/graphql'
+import Footer from '@/components/Footer/Footer'
 
 const cards = [
   { id: 1, title: 'Tema 1', image: cover2 },
@@ -70,21 +71,20 @@ const BlogPage = () => {
         '--more-padding-bottom': `${dynamicPaddingBottom || 80}px`
       } as React.CSSProperties}
     >
-      <section className={s.blog__hero}>
+      <section
+        className={s.blog__hero}
+        style={{
+          backgroundImage: "url('/delete/img/blogBG.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <h1 className={s.blog__hero__title}>
           <span>BLOG</span>
           <span className={s.blog__hero__title__color}>By Hunters</span>
         </h1>
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="none"
-          className={s.blog__hero__video}
-        >
-          <source src="/delete/videos/hero.mp4" type="video/mp4" />
-        </video>
+       
       </section>
 
       {/* Mostrar el ÚLTIMO post como featured si existe */}
@@ -138,9 +138,11 @@ const BlogPage = () => {
               }}
             />
             <div className={s.blog__grid__card__body}>
+              
               <h4 className={s.blog__grid__card__title}>{post.title}</h4>
               <p className={s.blog__grid__card__author}>Por: {post.postWritter}</p>
               <p>{post.superiorParagraph?.substring(0, 100)}...</p>
+              
               <div className={s.blog__grid__card__button__wrapper}>
                 <Button href={`/blog/${post.title?.toLowerCase().replace(/\s+/g, '-')}`} 
                 className={s.blog__grid__card__button}>
@@ -184,6 +186,8 @@ const BlogPage = () => {
           </button>
         )}
       </section>
+
+      <Footer />
     </main>
   )
 }
