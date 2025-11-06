@@ -7,6 +7,21 @@
 	position: relative;
 	min-height: 100vh;
 	width: 100%;
+	/* Overlay para mejorar contraste del texto sobre el video */
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		/* Gradiente sutil para mejorar legibilidad en todas las alturas */
+		background: linear-gradient(
+			180deg,
+			rgba(0, 0, 0, 0.45) 0%,
+			rgba(0, 0, 0, 0.55) 40%,
+			rgba(0, 0, 0, 0.75) 100%
+		);
+		pointer-events: none;
+		z-index: 1;
+	}
 	&__video {
 		position: absolute;
 		top: 0;
@@ -14,9 +29,10 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		z-index: 0;
 	}
 	&__content {
-		z-index: 1;
+		z-index: 2;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

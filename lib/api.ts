@@ -58,18 +58,7 @@ async function fetchGraphQL({
 
 	// ✅ Log GraphQL errors for debugging
 	if (json.errors?.length) {
-		console.error(
-			'[Contentful GraphQL Error]',
-			JSON.stringify(
-				{
-					errors: json.errors.map(e => ({ message: e.message })),
-					variables,
-					spaceId,
-				},
-				null,
-				2
-			)
-		)
+		
 	}
 
 	return json
@@ -176,10 +165,7 @@ export const getTextInnerAreasData = async ({
 
 		// ✅ Defensive check: if GraphQL has errors, log them
 		if (response.errors?.length) {
-			console.error(
-				`[TextInnerAreasData] GraphQL errors for locale="${locale}":`,
-				response.errors
-			)
+			
 			return null
 		}
 
@@ -187,20 +173,13 @@ export const getTextInnerAreasData = async ({
 		const items = response.data?.textInnerAreasCollection?.items
 
 		if (!items) {
-			console.warn(
-				`[TextInnerAreasData] No items found for locale="${locale}". Response:`,
-				JSON.stringify(response.data, null, 2)
-			)
+			
 			return null
 		}
 
-		console.log(
-			`[TextInnerAreasData] ✅ Fetched ${items.length} items for locale="${locale}"`
-		)
 
 		return items
-	} catch (error) {
-		console.error('[TextInnerAreasData] Exception:', error)
+	} catch {
 		return null
 	}
 }
