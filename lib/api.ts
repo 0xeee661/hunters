@@ -179,7 +179,7 @@ export const getTextInnerAreasData = async ({
 
 
 		return items
-	} catch (error) {
+	} catch {
 		return null
 	}
 }

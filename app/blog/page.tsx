@@ -44,8 +44,8 @@ const BlogPage = () => {
           ? Math.max(60, Math.min(180, 40 + (filteredData.length * 20)))
           : 80
         setDynamicPaddingBottom(padding)
-      } catch (error) {
-        // console.log('Error fetching blog data:', error)
+      } catch {
+        // intentionally ignored
       }
     }
     fetchData()

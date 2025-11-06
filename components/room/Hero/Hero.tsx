@@ -11,7 +11,6 @@ import 'photoswipe/dist/photoswipe.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
-import { InfiniteIconCarousel } from '@/components/ui/InfiniteIconCarousel/InfiniteIconCarousel'
 
 const images = [
 	{ src: '/delete/img/room1.jpg', width: 1364, height: 910 },
@@ -55,12 +54,6 @@ export const Hero = () => {
 	const { toggleBooking } = use(AppContext)
     const openersRef = useRef<Array<(() => void) | undefined>>([])
 
-	const iconItems = [
-		{ label: 'hotel', href: '/hotel' },
-		{ label: 'restaurante', href: '/restaurant' },
-		{ label: 'rooftop', href: '/rooftop' },
-		{ label: 'aliados', href: '/aliados' },
-	]
 	const settings: Settings = {
 		infinite: true,
 		speed: 500,
