@@ -27,13 +27,12 @@ const Home = async () => {
 	const secondTextSectionData = secondTextSection ? [secondTextSection] : null
 
 	if (textAreasData) {
-		console.log(`[Home] ✅ Loaded ${textAreasData.length} text areas`)
 	}
 
 	return (
 		<main className={s.home}>
 			<Hero />
-			<TextSection textData={firstTextSectionData} />
+			<TextSection textData={firstTextSectionData} lineHeight={1.8}/>
 			<RoomHero />
 			<Spaces />
 			<TextSection textData={secondTextSectionData} /> 

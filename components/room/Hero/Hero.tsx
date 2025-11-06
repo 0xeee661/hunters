@@ -137,7 +137,6 @@ export const Hero = () => {
                     ))}
                 </div>
             </Gallery>
-			<InfiniteIconCarousel items={iconItems} durationSeconds={22} />
 			<div className={s.hero__photos}></div>
 		</section>
 	)

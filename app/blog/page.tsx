@@ -45,7 +45,7 @@ const BlogPage = () => {
           : 80
         setDynamicPaddingBottom(padding)
       } catch (error) {
-        console.log('Error fetching blog data:', error)
+        // console.log('Error fetching blog data:', error)
       }
     }
     fetchData()
@@ -61,8 +61,6 @@ const BlogPage = () => {
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
-
-  console.log(blogData)
 
   return (
     <main
