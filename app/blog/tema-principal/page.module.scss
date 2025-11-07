@@ -60,6 +60,8 @@
 		padding: 20px 80px;
 		@include mobile {
 			text-align: center;
+			/* Alinear con el ancho del bloque de imagen inferior (que usa padding 0 16px) */
+			padding: 0 16px;
 		}
 		p {
 			color: #FFF;
@@ -84,6 +86,11 @@
 			}
 			@include mobile {
 				grid-template-columns: 1fr;
+				/* Hacer que el párrafo ocupe todo el ancho disponible del contenedor con padding 16px */
+				p {
+					max-width: 100%;
+					width: 100%;
+				}
 			}
 		}
 	}
@@ -125,6 +132,13 @@
 			@include mobile {
 				text-align: center;
 				padding-left: 0;
+			}
+			/* Clase explícita para forzar estilos en el párrafo clamp */
+			&__clamped {
+				color: #FFF;
+				max-width: 100%;
+				width: 100%;
+				text-align: justify;
 			}
 			/* El párrafo largo a una columna con medida legible */
 			p {

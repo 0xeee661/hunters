@@ -10,7 +10,7 @@ import { AppContext } from '@/context/AppContext'
 import { use } from 'react'
 
 export const SpacesSectionID = 'spaces'
-export const Spaces = () => {
+export const Spaces = ({ linesOpacity }: { linesOpacity?: number }) => {
 	const { toggleBooking } = use(AppContext)
 
 	return (
@@ -26,7 +26,7 @@ export const Spaces = () => {
 				<source src="/delete/videos/spaces2.mp4" type="video/mp4" />
 			</video>
 			<div className={s.spaces__overlay} />
-			<Image src={lines} alt="Lines" className={s.spaces__lines} />
+			<Image src={lines} alt="Lines" className={s.spaces__lines} style={linesOpacity !== undefined ? { opacity: linesOpacity } : undefined} />
 			<div className={s.spaces__content}>
 				<div className={s.spaces__content__container}>
 					<p className={s.spaces__content__text}>
