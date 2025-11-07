@@ -16,8 +16,8 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'Hunters',
-  description: 'Un nuevo proyecto hotelero',
+  title: '🏨 Hunters Hotel Medellín: La Mejor Experiencia Hotelera con Transporte al Aeropuerto, Desayuno Incluido y Estilo Boutique',
+  description:'Descubre por qué Hunters Hotel by Jalo en Medellín redefine la hospitalidad con su concepto único. Ofrece transporte al aeropuerto, desayuno incluido, diseño moderno, política pet-friendly, cancelación flexible y ubicación ideal en El Poblado.'
 }
 
 export default function RootLayout({

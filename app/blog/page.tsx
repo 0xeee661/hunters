@@ -90,7 +90,8 @@ const BlogPage = () => {
         return blogData && blogData.length > 0
       })() && (() => {
         const lastIndex = blogData.length - 1
-        const featuredPost = blogData[lastIndex]
+        const preferred = blogData.find(p => p?.title?.toLowerCase().includes('hunters hotel'))
+        const featuredPost = preferred || blogData[lastIndex]
         return (
           <section className={s.blog__featured}>
             <div className={s.blog__featured__card}>
@@ -164,9 +165,11 @@ const BlogPage = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua.
               </p>
-              <Button href={`/blog/${slugify(card.title)}`} className={s.blog__grid__card__button}>
-                Ver más
-              </Button>
+              <div className={s.blog__grid__card__button__wrapper}>
+                <Button href={`/blog/${slugify(card.title)}`} className={s.blog__grid__card__button}>
+                  Ver más
+                </Button>
+              </div>
             </div>
           </article>
         ))}

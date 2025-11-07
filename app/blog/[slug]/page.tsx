@@ -3,6 +3,7 @@ import s from '../tema-principal/page.module.scss'
 import { getHuntersBlogDataNoLocale } from '@/lib/api'
 import slugify from '@/utils/helpers/slugify'
 import type { HuntersBlog } from '@/types/graphql/graphql'
+import ClampParagraph from '@/components/blog/ClampParagraph'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -49,7 +50,8 @@ export default async function BlogTemaPage({ params }: Props) {
 
       <section className={s.detail__content}>
         <div className={s.detail__content__cols}>
-          <p>{post.superiorParagraph}</p>
+          {/* Puedes ajustar el tamaño/espaciado aquí */}
+          <p style={{ fontSize: '20px', lineHeight: 1.6, textAlign: 'justify' }}>{post.superiorParagraph}</p>
         </div>
       </section>
 
@@ -68,7 +70,8 @@ export default async function BlogTemaPage({ params }: Props) {
 
       <section className={s.detail__split}>
         <div className={s.detail__split__left}>
-          <p>{post.inferiorParagraph}</p>
+          {/* Mantén el texto justificado y limitado a la altura de la imagen (≈400px) */}
+          <ClampParagraph text={post.inferiorParagraph || ''} fontSizePx={20} lineHeight={1.6} maxHeightPx={400} />
         </div>
         <div className={s.detail__split__right}>
           {post.bottomImage?.url && (

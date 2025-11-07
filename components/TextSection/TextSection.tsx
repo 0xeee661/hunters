@@ -11,12 +11,28 @@ type TextSectionProps = {
    * Use to tweak spacing only from specific pages (e.g., home page).
    */
   lineHeight?: CSSProperties['lineHeight']
+  /**
+   * Optional scroll snapping alignment override for the section container.
+   * Useful to force snapping on specific pages/instances.
+   */
+  snapAlign?: CSSProperties['scrollSnapAlign']
+  /**
+   * If true, enforces that scrolling stops on this section at least once per gesture.
+   */
+  snapStop?: boolean
 }
 
-export const TextSection = ({ textData, lineHeight }: TextSectionProps) => {
+export const TextSection = ({ textData, lineHeight, snapAlign, snapStop }: TextSectionProps) => {
+
+  const sectionStyle: CSSProperties | undefined = (snapAlign || snapStop)
+    ? {
+        scrollSnapAlign: snapAlign,
+        scrollSnapStop: snapStop ? 'always' : undefined,
+      }
+    : undefined
 
   return (
-    <section className={s.textSection}>
+    <section className={s.textSection} style={sectionStyle}>
       {textData && textData.length > 0 ? (
         textData.map((item) => (
           <div key={item.sys.id} className={s.textSection__item}>

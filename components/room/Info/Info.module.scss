@@ -140,9 +140,10 @@
 					color: #fffac9; // match paragraph color
 				}
 			}
-			/* Remove default bullets for just this amenities UL */
-			ul.info__content__text { 
-        list-style: none; 
+		/* Amenities list with bullets */
+		ul.info__content__text { 
+        list-style-type: disc;
+        list-style-position: inside;
         padding-left: 0;
         margin: 0; }
 			&__title {

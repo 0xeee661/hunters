@@ -3,6 +3,8 @@
 .detail {
 	/* Controla el largo de línea (aprox. caracteres por línea) */
 	--measure: 68ch;
+	/* Ancho unificado para imagen y párrafos anchos del artículo */
+	--article-width: 1280px;
 	&__hero {
 		position: relative;
 		width: 100%;
@@ -76,7 +78,7 @@
 
 			/* párrafo principal centrado y ancho amplio */
 			p {
-				max-width: min(1100px, 90vw);
+				max-width: min(var(--article-width), 90vw);
 				width: 100%;
 				text-align: center;
 			}
@@ -91,7 +93,7 @@
 		display: grid;
 		place-items: center;
 		&__img {
-			width: 1280px;
+			width: var(--article-width);
 			height: 683px;
 			object-fit: cover;
 			border-radius: 6px;

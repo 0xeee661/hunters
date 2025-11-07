@@ -16,33 +16,33 @@ import { getTextInnerAreasData } from '@/lib/api'
  * Note: Uses default locale (en-US) - Contentful space only has en-US locale configured
  */
 const Home = async () => {
-	// ✅ Fetch data from GraphQL (uses en-US by default)
-	const textAreasData = await getTextInnerAreasData()
+  // ✅ Fetch data from GraphQL (uses en-US by default)
+  const textAreasData = await getTextInnerAreasData()
 
-	// ✅ Safe destructuring with default null values
-	const [firstTextSection = null, secondTextSection = null] = textAreasData ?? []
+  // ✅ Safe destructuring with default null values
+  const [firstTextSection = null, secondTextSection = null] = textAreasData ?? []
 
-	// ✅ Map individual items to component-compatible format
-	const firstTextSectionData = firstTextSection ? [firstTextSection] : null
-	const secondTextSectionData = secondTextSection ? [secondTextSection] : null
+  // ✅ Map individual items to component-compatible format
+  const firstTextSectionData = firstTextSection ? [firstTextSection] : null
+  const secondTextSectionData = secondTextSection ? [secondTextSection] : null
 
-	if (textAreasData) {
-	}
+  if (textAreasData) {
+  }
 
-	return (
-		<main className={s.home}>
-			<Hero />
-			<TextSection textData={firstTextSectionData} lineHeight={1.8}/>
-			<RoomHero />
-			<Spaces />
-			<TextSection textData={secondTextSectionData} /> 
-			<Places />
-			<Map />
-			<Experiences />
-			<ScrollIndicator />
-			<Footer />
-		</main>
-	)
+  return (
+    <main className={s.home}>
+      <Hero />
+      <TextSection textData={firstTextSectionData} lineHeight={1.8} snapAlign="center" snapStop />
+      <RoomHero />
+      <Spaces />
+      <TextSection textData={secondTextSectionData} lineHeight={1.8} snapAlign="center" snapStop />
+      <Places />
+      <Map />
+      <Experiences />
+      <ScrollIndicator />
+      <Footer />
+    </main>
+  )
 }
 
 export default Home
