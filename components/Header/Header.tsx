@@ -64,11 +64,11 @@ export const Header = () => {
               Rooftop
             </Link>
           </li>
-          <li className={s.header__nav__list__item}>
+          {/* <li className={s.header__nav__list__item}>
             <Link href="/blog" className={s.header__nav__list__item__link}>
               Blog
             </Link>
-          </li>
+          </li> */}
           <li className={s.header__nav__list__item}>
             <Link href="/contact" className={s.header__nav__list__item__link}>
               Contáctanos

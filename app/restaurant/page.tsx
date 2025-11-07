@@ -44,7 +44,8 @@ const RestaurantPage = () => {
 				</video>
 			</section>
       
-      <TextSection textData={textData} />
+      <TextSection textData={textData}  lineHeight={1.8} 
+      snapAlign="center"/>
 			
       <section className={s.restaurant__content}>
 				<div className={s.restaurant__content__container}>

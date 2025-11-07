@@ -28,7 +28,7 @@
     font-weight: 400;
     font-style: Regular;
     font-size: 20px;
-    line-height: 101%;
+    line-height: var(--text-line-height, 1.01);
     letter-spacing: 0%;
     padding-left: 8%;
     padding-right: 8%;

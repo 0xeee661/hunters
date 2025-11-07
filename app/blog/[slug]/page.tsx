@@ -92,6 +92,7 @@ export default async function BlogTemaPage({ params }: Props) {
           )}
         </div>
       </section>
+      
     </main>
   )
 }
