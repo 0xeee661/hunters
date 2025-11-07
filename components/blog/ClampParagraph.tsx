@@ -22,7 +22,8 @@ export default function ClampParagraph({
   className,
 }: ClampParagraphProps) {
   const ref = useRef<HTMLParagraphElement | null>(null)
-  const [displayText, setDisplayText] = useState<string>(text)
+  const safeText = typeof text === 'string' ? text : ''
+  const [displayText, setDisplayText] = useState<string>(safeText)
 
   const style = useMemo(() => ({
     fontSize: `${fontSizePx}px`,
@@ -36,22 +37,22 @@ export default function ClampParagraph({
     if (!el) return
 
     // Early set full text, then measure
-    el.textContent = text
+    el.textContent = safeText
 
     // If fits, keep full
     if (el.scrollHeight <= maxHeightPx) {
-      setDisplayText(text)
+      setDisplayText(safeText)
       return
     }
 
     // Binary search maximum length that fits
     let low = 0
-    let high = text.length
+    let high = safeText.length
     let best = 0
 
     const fits = (len: number) => {
       // Prefer cutting at last period before len
-      const slice = text.slice(0, len)
+      const slice = safeText.slice(0, len)
       const lastDot = slice.lastIndexOf('.')
       const candidate = lastDot > 0 ? slice.slice(0, lastDot + 1) : slice
       el.textContent = candidate
@@ -69,11 +70,23 @@ export default function ClampParagraph({
     }
 
     // Finalize with last period within best
-    const slice = text.slice(0, best)
+    const slice = safeText.slice(0, best)
     const lastDot = slice.lastIndexOf('.')
-    const finalText = lastDot > 0 ? slice.slice(0, lastDot + 1) : slice
-    setDisplayText(finalText || text)
-  }, [text, maxHeightPx])
+    let finalText = lastDot > 0 ? slice.slice(0, lastDot + 1) : slice
+
+    // Safety: never leave empty - fallback to first sentence or truncated content
+    if (!finalText || finalText.trim().length === 0) {
+      const firstDot = safeText.indexOf('.')
+      finalText =
+        firstDot > 0
+          ? safeText.slice(0, firstDot + 1)
+          : safeText.slice(0, Math.min(140, safeText.length))
+    }
+
+    // Set both DOM and state to avoid flicker in some browsers
+    el.textContent = finalText
+    setDisplayText(finalText)
+  }, [safeText, maxHeightPx, fontSizePx, lineHeight])
 
   return (
     <p ref={ref} className={className} style={style}>
