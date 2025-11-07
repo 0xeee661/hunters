@@ -32,10 +32,12 @@ const Home = async () => {
   return (
     <main className={s.home}>
       <Hero />
-      <TextSection textData={firstTextSectionData} lineHeight={1.8} snapAlign="center" snapStop />
+      <TextSection textData={firstTextSectionData} lineHeight={1.8} 
+      snapAlign="center" snapStop sectionHeight="auto" />
       <RoomHero />
       <Spaces />
-      <TextSection textData={secondTextSectionData} lineHeight={1.8} snapAlign="center" snapStop />
+      <TextSection textData={secondTextSectionData} lineHeight={1.8} 
+      snapAlign="center" snapStop sectionHeight="30vh" />
       <Places />
       <Map />
       <Experiences />

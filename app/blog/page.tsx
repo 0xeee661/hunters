@@ -124,9 +124,9 @@ const BlogPage = () => {
         )
       })()}
 
-      {/* Mostrar grid con posts reales (todos menos el último que es featured) */}
+      {/* Mostrar grid con posts reales (incluir también el post destacado) */}
       <section className={s.blog__grid}>
-        {blogData && blogData.length > 1 && blogData.slice(0, -1)
+        {blogData && blogData.length > 0 && blogData
           .slice(0, isMobile ? undefined : (showAllPosts ? undefined : 9)) // En mobile mostrar todos, en desktop limitar a 9
           .map((post) => (
           <article key={post.sys.id} className={s.blog__grid__card}>

@@ -19,6 +19,7 @@ export default async function BlogTemaPage({ params }: Props) {
     !!p?.title && slugify(p.title) === slug
   )
 
+
   if (!post) {
     return (
       <main className={s.detail}>
@@ -71,7 +72,7 @@ export default async function BlogTemaPage({ params }: Props) {
       <section className={s.detail__split}>
         <div className={s.detail__split__left}>
           {/* Mantén el texto justificado y limitado a la altura de la imagen (≈400px) */}
-          <ClampParagraph text={post.inferiorParagraph || ''} fontSizePx={20} lineHeight={1.6} maxHeightPx={400} />
+          <ClampParagraph className={s.detail__split__left__clamped} text={post?.inferiorParagraph || ''} fontSizePx={20} lineHeight={1.6} maxHeightPx={400} />
         </div>
         <div className={s.detail__split__right}>
           {post.bottomImage?.url && (

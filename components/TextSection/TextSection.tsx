@@ -20,19 +20,32 @@ type TextSectionProps = {
    * If true, enforces that scrolling stops on this section at least once per gesture.
    */
   snapStop?: boolean
+  /**
+   * Optional explicit height for the section container.
+   * Pass 'auto' (default behaviour) or any valid CSS height (e.g. '60vh').
+   */
+  sectionHeight?: CSSProperties['height']
+  /**
+   * Optional min-height for the section container.
+   */
+  sectionMinHeight?: CSSProperties['minHeight']
 }
 
-export const TextSection = ({ textData, lineHeight, snapAlign, snapStop }: TextSectionProps) => {
+export const TextSection = ({ textData, lineHeight, snapAlign, snapStop, sectionHeight, sectionMinHeight }: TextSectionProps) => {
 
-  const sectionStyle: CSSProperties | undefined = (snapAlign || snapStop)
-    ? {
-        scrollSnapAlign: snapAlign,
-        scrollSnapStop: snapStop ? 'always' : undefined,
-      }
-    : undefined
+  const sectionStyle: CSSProperties = {
+    ...(snapAlign || snapStop
+      ? {
+          scrollSnapAlign: snapAlign,
+          scrollSnapStop: snapStop ? 'always' : undefined,
+        }
+      : {}),
+    ...(sectionHeight ? { height: sectionHeight } : {}),
+    ...(sectionMinHeight ? { minHeight: sectionMinHeight } : {}),
+  }
 
   return (
-    <section className={s.textSection} style={sectionStyle}>
+    <section className={s.textSection} style={Object.keys(sectionStyle).length ? sectionStyle : undefined}>
       {textData && textData.length > 0 ? (
         textData.map((item) => (
           <div key={item.sys.id} className={s.textSection__item}>
