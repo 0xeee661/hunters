@@ -3,6 +3,7 @@ import s from '../tema-principal/page.module.scss'
 import { getHuntersBlogDataNoLocale } from '@/lib/api'
 import slugify from '@/utils/helpers/slugify'
 import type { HuntersBlog } from '@/types/graphql/graphql'
+import SmartText from '@/components/blog/SmartText'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -50,8 +51,11 @@ export default async function BlogTemaPage({ params }: Props) {
 
       <section className={s.detail__content}>
         <div className={s.detail__content__cols}>
-          {/* Puedes ajustar el tamaño/espaciado aquí */}
-          <p style={{ fontSize: '20px', lineHeight: 1.6, textAlign: 'justify' }}>{post.superiorParagraph}</p>
+          {/* Render dinámico: si es lista de FAQs la formatea como lista, si no, como párrafo */}
+          <SmartText
+            text={post.superiorParagraph || ''}
+            style={{ fontSize: '20px', lineHeight: 1.6, textAlign: 'justify' }}
+          />
         </div>
       </section>
 
@@ -70,9 +74,11 @@ export default async function BlogTemaPage({ params }: Props) {
 
       <section className={s.detail__split}>
         <div className={s.detail__split__left}>
-          <p className={s.detail__split__left__clamped} style={{ fontSize: '20px', lineHeight: 1.6, textAlign: 'justify' }}>
-            {post?.inferiorParagraph || ''}
-          </p>
+          <SmartText
+            text={post?.inferiorParagraph || ''}
+            className={s.detail__split__left__clamped}
+            style={{ fontSize: '20px', lineHeight: 1.6, textAlign: 'justify' }}
+          />
         </div>
         <div className={s.detail__split__right}>
           {post.bottomImage?.url && (
