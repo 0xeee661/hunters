@@ -40,14 +40,14 @@ export const Info = () => {
 				<div className={s.info__amenities} aria-label="Amenidades">
 					<h4 className={s.info__content__text}>Amenidades</h4>
 					<ul className={s.info__content__text}>
-						<li>🧊 Nevera</li>
-						<li>🔐 Caja de seguridad</li>
-						<li>💨 Aire acondicionado</li>
-						<li>📺 Televisor de 52” con cable</li>
-						<li>💧 2 botellas de agua de cortesía</li>
-						<li>☕ Estación de café y té</li>
-						<li>💇‍♀️ Secador de cabello</li>
-						<li>🧼 Plancha para ropa</li>
+						<li>Nevera</li>
+						<li>Caja de seguridad</li>
+						<li>Aire acondicionado</li>
+						<li>Televisor de 52” con cable</li>
+						<li>2 botellas de agua de cortesía</li>
+						<li>Estación de café y té</li>
+						<li>Secador de cabello</li>
+						<li>Plancha para ropa</li>
 					</ul>
 				</div>
 				<Button className={s.info__content__button} onClick={toggleBooking}>
