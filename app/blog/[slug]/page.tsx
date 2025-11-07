@@ -3,7 +3,6 @@ import s from '../tema-principal/page.module.scss'
 import { getHuntersBlogDataNoLocale } from '@/lib/api'
 import slugify from '@/utils/helpers/slugify'
 import type { HuntersBlog } from '@/types/graphql/graphql'
-import ClampParagraph from '@/components/blog/ClampParagraph'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -71,8 +70,9 @@ export default async function BlogTemaPage({ params }: Props) {
 
       <section className={s.detail__split}>
         <div className={s.detail__split__left}>
-          {/* Mantén el texto justificado y limitado a la altura de la imagen (≈400px) */}
-          <ClampParagraph className={s.detail__split__left__clamped} text={post?.inferiorParagraph || ''} fontSizePx={20} lineHeight={1.6} maxHeightPx={400} />
+          <p className={s.detail__split__left__clamped} style={{ fontSize: '20px', lineHeight: 1.6, textAlign: 'justify' }}>
+            {post?.inferiorParagraph || ''}
+          </p>
         </div>
         <div className={s.detail__split__right}>
           {post.bottomImage?.url && (
