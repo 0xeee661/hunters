@@ -40,6 +40,15 @@ const HotelPage = () => {
     router.push('/room')
   }
 
+  // Imagenes editables para la galería del bloque "intro"
+  const introGalleryImages = [
+    { src: '/delete/img/hotel/room2.png', w: 700, h: 500 },
+    { src: '/delete/img/hotel/room.png', w: 700, h: 500 },
+    { src: '/delete/img/room1.jpg', w: 600, h: 400 },
+    { src: '/delete/img/room2.jpg', w: 600, h: 400 },
+    { src: '/delete/img/room3.jpg', w: 600, h: 400 },
+  ]
+
   return (
     <main className={s.hotel}>
 
@@ -100,10 +109,21 @@ const HotelPage = () => {
         </div>
 
         <div className={s.hotel__intro__gallery}>
-          <div className={`${s.card} ${s.tall}`}>
-            <Image src={layerImg} alt="Galería" />
-
-          </div>
+          <Gallery>
+            {introGalleryImages.map((img, index) => (
+              <Item key={`intro-img-${index}`} original={img.src} thumbnail={img.src} width={img.w} height={img.h}>
+                {({ ref, open }) =>
+                  index === 0 ? (
+                    <button ref={ref} onClick={open} className={`${s.card} ${s.tall}`} style={{ position: 'relative' }}>
+                      <Image src={layerImg} alt="Galería" />
+                    </button>
+                  ) : (
+                    <div ref={ref} style={{ display: 'none' }} />
+                  )
+                }
+              </Item>
+            ))}
+          </Gallery>
         </div>
 
       </section>
@@ -112,7 +132,7 @@ const HotelPage = () => {
         className={s.hotel__rooms}
         style={{
           '--rooms-height': '100vh',
-          '--rooms-mobile-thumbs-mt': '-230px',
+          '--rooms-mobile-thumbs-mt': '-360px',
           '--rooms-mobile-cta-mt': '8px',
         } as CSSProperties}
       >

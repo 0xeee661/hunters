@@ -27,8 +27,9 @@
 		z-index: 1; /* overlay por encima de líneas */
 		background: linear-gradient(
 			90deg,
-			#060b07 62.31%,
-			rgba(33, 33, 33, 0) 120%
+			rgba(0, 0, 0, 0.15) 0%,
+			rgba(0, 0, 0, 0.08) 50%,
+			rgba(0, 0, 0, 0) 100%
 		);
 	}
 	&__lines {
