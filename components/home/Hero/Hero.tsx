@@ -6,11 +6,25 @@ import { Button } from 'components/ui/Button/Button'
 import { AppContext } from '@/context/AppContext'
 
 export const HeroSectionID = 'hero'
-export const Hero = () => {
+
+type HomeHeroProps = {
+  /** Desplazamiento vertical del bloque en mobile (ej: '-12%', '-60px') */
+  mobileShiftY?: string
+}
+
+export const Hero = ({ mobileShiftY }: HomeHeroProps) => {
 	const { toggleBooking } = use(AppContext)
 
 	return (
-		<section className={s.hero} id={HeroSectionID}>
+		<section
+			className={s.hero}
+			id={HeroSectionID}
+			style={
+				mobileShiftY
+					? ({ '--home-hero-mobile-shift-y': mobileShiftY } as React.CSSProperties)
+					: undefined
+			}
+		>
 			<div className={s.hero__content}>
 				<h1 className={s.hero__content__title}>
 					Nuevo Hotel en{' '}

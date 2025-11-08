@@ -13,6 +13,7 @@
     display: grid;
     align-items: center;
     padding: 24px;
+    padding-bottom: 250px;
 
     &::before {
       content: '';
@@ -58,6 +59,7 @@
       line-height: 1.05;
       display: grid;
       gap: 4px;
+      margin-bottom: var(--hero-title-mb, 16px); /* espacio bajo el título */
     }
 
     &__title__row {
@@ -81,8 +83,8 @@
       /* requested typography */
       line-height: 100%;
       letter-spacing: 0%;
-      text-align: right;
-      justify-self: end;
+      text-align: center;
+      justify-self: center;
       text-transform: uppercase;
     }
 
@@ -108,13 +110,11 @@
     }
 
     &__desc {
-      padding-left: 3%;
-      position: absolute;
-      left: 24px;
-      bottom: 66px;
-      margin-top: 0;
-      max-width: 520px;
-      text-align: left;
+      padding-left: 0;
+      position: static;
+      margin-top: var(--hero-desc-mt, 18px); /* espacio sobre el texto bajo el botón */
+      max-width: 720px;
+      text-align: center;
       z-index: 1;
       color: #FFFAC9;
       font-family: Montserrat, sans-serif;
@@ -124,35 +124,33 @@
       line-height: 1.8rem;
 
       @include mobile {
-        position: absolute;
-        /* mantener abajo en mobile también */
-        left: 16px;
-        bottom: 24px;
-        max-width: calc(100% - 32px);
+        position: static;
+        text-align: center;
+        max-width: 95%;
+        margin: 10px auto 0;
       }
     }
 
     &__cta {
-      position: absolute;
-      right: 15%;
-      bottom: 36px;
+      position: static;
+      margin: 10px auto 0;
       z-index: 1;
+      justify-self: center;
     }
 
     /* Ajustes específicos para 1024px */
     @media only screen and (max-width: 1024px) {
       &__desc {
-        position: absolute;
-        left: 24px;
-        bottom: 66px;
-        max-width: calc(100% - 200px);
+        position: static;
+        max-width: 85%;
+        margin: var(--hero-desc-mt, 18px) auto 0;
+        text-align: center;
         font-size: 1.375rem;
       }
 
       &__cta {
-        position: absolute;
-        right: 24px;
-        bottom: 36px;
+        position: static;
+        margin: var(--hero-cta-mt, 12px) auto 0; /* espacio entre título y botón */
         z-index: 1;
       }
     }

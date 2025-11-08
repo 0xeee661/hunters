@@ -58,7 +58,8 @@ const HotelPage = () => {
               <span className={s.hotel__hero__title__city}>MEDELLÍN</span>
             </span>
           </h1>
-          <Button className={s.hotel__hero__cta} onClick={toggleBooking}>RESERVAR AHORA</Button>
+          <Button className={s.hotel__hero__cta} 
+          onClick={toggleBooking}>RESERVAR AHORA</Button>
           <p className={s.hotel__hero__desc}
             style={{ '--hero-desc-mobile-mt': '15%' } as CSSProperties}>
             Ubicado cerca a Provenza y El Poblado, en el corazón de la zona más vibrante y
@@ -101,7 +102,7 @@ const HotelPage = () => {
 
         <div className={s.hotel__intro__gallery}>
           <Gallery>
-            {[cover3, cover4, cover1, cover2].map((img, index) => (
+            {[cover1, cover2].map((img, index) => (
               <Item key={`intro-img-${index}`} original={img.src} thumbnail={img.src} width={img.width} height={img.height}>
                 {({ ref, open }) =>
                   index === 0 ? (
@@ -114,6 +115,21 @@ const HotelPage = () => {
                 }
               </Item>
             ))}
+            {/* Imágenes adicionales copiadas de la galería de Room (solo registrar en lightbox) */}
+            <div style={{ display: 'none' }}>
+              <Item original="/delete/img/room3.jpg" thumbnail="/delete/img/room3.jpg" width={1364} height={910}>
+                {({ ref }) => <div ref={ref} />}
+              </Item>
+              <Item original="/delete/img/room4.jpg" thumbnail="/delete/img/room4.jpg" width={1364} height={910}>
+                {({ ref }) => <div ref={ref} />}
+              </Item>
+              <Item original="/delete/img/room5.jpg" thumbnail="/delete/img/room5.jpg" width={1333} height={890}>
+                {({ ref }) => <div ref={ref} />}
+              </Item>
+              <Item original="/delete/img/room6.jpg" thumbnail="/delete/img/room6.jpg" width={1334} height={890}>
+                {({ ref }) => <div ref={ref} />}
+              </Item>
+            </div>
           </Gallery>
         </div>
 
@@ -158,7 +174,7 @@ const HotelPage = () => {
 
         <Gallery>
           <div className={s.hotel__rooms__thumbs}>
-            {[cover3, cover4, cover1, cover2].map((img, i) => (
+            {[cover4, cover1, cover2].map((img, i) => (
               <div key={i} className={s.hotel__rooms__thumb}>
                 <Item original={img.src} thumbnail={img.src} width={img.width} height={img.height}>
                   {({ ref, open }) => (
@@ -167,6 +183,21 @@ const HotelPage = () => {
                 </Item>
               </div>
             ))}
+          </div>
+          {/* Imágenes adicionales de Room para el lightbox (sin afectar los thumbs visibles) */}
+          <div style={{ display: 'none' }}>
+            <Item original="/delete/img/room3.jpg" thumbnail="/delete/img/room3.jpg" width={1364} height={910}>
+              {({ ref }) => <div ref={ref} />}
+            </Item>
+            <Item original="/delete/img/room4.jpg" thumbnail="/delete/img/room4.jpg" width={1364} height={910}>
+              {({ ref }) => <div ref={ref} />}
+            </Item>
+            <Item original="/delete/img/room5.jpg" thumbnail="/delete/img/room5.jpg" width={1333} height={890}>
+              {({ ref }) => <div ref={ref} />}
+            </Item>
+            <Item original="/delete/img/room6.jpg" thumbnail="/delete/img/room6.jpg" width={1334} height={890}>
+              {({ ref }) => <div ref={ref} />}
+            </Item>
           </div>
         </Gallery>
 
