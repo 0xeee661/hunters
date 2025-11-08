@@ -29,9 +29,39 @@ type TextSectionProps = {
    * Optional min-height for the section container.
    */
   sectionMinHeight?: CSSProperties['minHeight']
+  /**
+   * Optional padding-top for mobile devices at 768px (CSS variable).
+   * Example: '40px', '5vh', etc.
+   */
+  sectionPaddingTopMobile?: string
+  /**
+   * Optional padding-top for mobile devices at 425px (CSS variable).
+   * Example: '40px', '5vh', etc.
+   */
+  sectionPaddingTopMobile425?: string
+  /**
+   * Optional padding-top for mobile devices at 375px (CSS variable).
+   * Example: '40px', '5vh', etc.
+   */
+  sectionPaddingTopMobile375?: string
+  /**
+   * Optional height for mobile devices at 768px (CSS variable).
+   * Example: '50vh', '400px', 'auto', etc.
+   */
+  sectionHeightMobile?: CSSProperties['height']
+  /**
+   * Optional height for mobile devices at 425px (CSS variable).
+   * Example: '50vh', '400px', 'auto', etc.
+   */
+  sectionHeightMobile425?: CSSProperties['height']
+  /**
+   * Optional height for mobile devices at 375px (CSS variable).
+   * Example: '50vh', '400px', 'auto', etc.
+   */
+  sectionHeightMobile375?: CSSProperties['height']
 }
 
-export const TextSection = ({ textData, lineHeight, snapAlign, snapStop, sectionHeight, sectionMinHeight }: TextSectionProps) => {
+export const TextSection = ({ textData, lineHeight, snapAlign, snapStop, sectionHeight, sectionMinHeight, sectionPaddingTopMobile, sectionPaddingTopMobile425, sectionPaddingTopMobile375, sectionHeightMobile, sectionHeightMobile425, sectionHeightMobile375 }: TextSectionProps) => {
 
   const sectionStyle: CSSProperties = {
     ...(snapAlign || snapStop
@@ -42,6 +72,12 @@ export const TextSection = ({ textData, lineHeight, snapAlign, snapStop, section
       : {}),
     ...(sectionHeight ? { height: sectionHeight } : {}),
     ...(sectionMinHeight ? { minHeight: sectionMinHeight } : {}),
+    ...(sectionPaddingTopMobile ? { '--text-section-pt-mobile': sectionPaddingTopMobile } as React.CSSProperties : {}),
+    ...(sectionPaddingTopMobile425 ? { '--text-section-pt-mobile-425': sectionPaddingTopMobile425 } as React.CSSProperties : {}),
+    ...(sectionPaddingTopMobile375 ? { '--text-section-pt-mobile-375': sectionPaddingTopMobile375 } as React.CSSProperties : {}),
+    ...(sectionHeightMobile ? { '--text-section-h-mobile': sectionHeightMobile } as React.CSSProperties : {}),
+    ...(sectionHeightMobile425 ? { '--text-section-h-mobile-425': sectionHeightMobile425 } as React.CSSProperties : {}),
+    ...(sectionHeightMobile375 ? { '--text-section-h-mobile-375': sectionHeightMobile375 } as React.CSSProperties : {}),
   }
 
   return (

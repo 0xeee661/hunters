@@ -5,14 +5,19 @@ import { Button } from '@/components/ui/Button/Button'
 import { use } from 'react'
 import { AppContext } from '@/context/AppContext'
 import lines from 'public/delete/img/lines6.png'
+import type { CSSProperties } from 'react'
 
 export const Info = () => {
 	const { toggleBooking } = use(AppContext)
 
 	return (
-		<section className={s.info}>
+		<section className={s.info} style={{ 
+			'--amenities-li-fs-725': '0.9rem',
+			'--amenities-title-ml-768': 'auto'
+		} as CSSProperties}>
 			<Image src={lines} alt="Lines" className={s.info__lines} />
-			<div className={s.info__content}>
+			
+      <div className={s.info__content}>
 				<div className={s.info__content__title}>
 					<p className={s.info__content__title__text}>
 						“Estética <br />
@@ -54,6 +59,7 @@ export const Info = () => {
 					RESERVAR AHORA
 				</Button>
 			</div>
+
 			<div className={s.info__photo}>
 				<Image
 					src="/delete/img/room1.jpg"

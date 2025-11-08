@@ -63,6 +63,17 @@
 		width: 100%;
 		max-width: 754px;
 		padding: 0 20px;
+		/* Unify slick internal spacing across breakpoints */
+		:global(.slick-list) {
+			margin: 0 0px; /* mirrors slide padding to keep same gap as desktop */
+      @media (max-width: 768px) {
+        margin: 0 150px;
+      }
+
+      @media (max-width: 425px) {
+        margin: 0 0px;
+      }
+		}
 
 		:global(.slick-slide) {
 			padding: 0 7px;

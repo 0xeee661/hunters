@@ -40,15 +40,6 @@ const HotelPage = () => {
     router.push('/room')
   }
 
-  // Imagenes editables para la galería del bloque "intro"
-  const introGalleryImages = [
-    { src: '/delete/img/hotel/room2.png', w: 700, h: 500 },
-    { src: '/delete/img/hotel/room.png', w: 700, h: 500 },
-    { src: '/delete/img/room1.jpg', w: 600, h: 400 },
-    { src: '/delete/img/room2.jpg', w: 600, h: 400 },
-    { src: '/delete/img/room3.jpg', w: 600, h: 400 },
-  ]
-
   return (
     <main className={s.hotel}>
 
@@ -110,8 +101,8 @@ const HotelPage = () => {
 
         <div className={s.hotel__intro__gallery}>
           <Gallery>
-            {introGalleryImages.map((img, index) => (
-              <Item key={`intro-img-${index}`} original={img.src} thumbnail={img.src} width={img.w} height={img.h}>
+            {[cover3, cover4, cover1, cover2].map((img, index) => (
+              <Item key={`intro-img-${index}`} original={img.src} thumbnail={img.src} width={img.width} height={img.height}>
                 {({ ref, open }) =>
                   index === 0 ? (
                     <button ref={ref} onClick={open} className={`${s.card} ${s.tall}`} style={{ position: 'relative' }}>

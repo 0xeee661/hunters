@@ -37,7 +37,13 @@ const Home = async () => {
       <RoomHero />
       <Spaces />
       <TextSection textData={secondTextSectionData} lineHeight={1.8} 
-      snapAlign="center" snapStop sectionHeight="30vh" />
+      snapAlign="center" snapStop sectionHeight="30vh" 
+      sectionPaddingTopMobile="17%" 
+      sectionPaddingTopMobile425="20%" 
+      sectionPaddingTopMobile375="35%"
+      sectionHeightMobile="50vh"
+      sectionHeightMobile425="100vh"
+      sectionHeightMobile375="110vh" />
       <Places />
       <Map />
       <Experiences />
