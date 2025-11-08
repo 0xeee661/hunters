@@ -9,6 +9,88 @@
 	@include mobile {
 		grid-template-columns: 1fr;
 	}
+
+	/* Force desktop-like layout exactly at 1024px width */
+	@media only screen and (width: 1024px) {
+		grid-template-columns: 1fr 1fr !important;
+		justify-items: stretch !important;
+		align-items: stretch !important;
+
+		&__content {
+			max-width: 550px !important;
+			background: none !important;
+			padding: 120px 20px !important;
+			width: auto !important;
+			text-align: left !important;
+			align-items: center !important;
+			justify-content: center !important;
+			position: relative !important;
+			&:before {
+				content: none !important;
+			}
+		}
+
+		&__content__text {
+			color: #fffac9 !important;
+			font-size: 1.5rem !important;
+			font-weight: 700 !important;
+			line-height: 148.443% !important;
+			margin-top: 43px !important;
+			margin-bottom: 54px !important;
+			text-align: left !important;
+			order: 0 !important;
+			max-width: none !important;
+		}
+
+		&__amenities {
+			margin-top: 24px !important;
+			max-width: 100% !important;
+			order: 0 !important;
+			display: block !important;
+			text-align: left !important;
+			.info__content__text {
+				text-align: left !important;
+			}
+			ul.info__content__text {
+				text-align: left !important;
+			}
+		}
+
+		&__button {
+			display: none !important;
+		}
+
+		&__photo {
+			display: block !important;
+		}
+	}
+	/* Center the section precisely at 725px and below without affecting larger sizes */
+	@include custom-breakpoint(725px) {
+		justify-items: center;
+		align-items: center;
+		&__content {
+			margin-left: auto !important;
+			margin-right: auto !important;
+			text-align: center !important;
+			align-items: center !important;
+			justify-content: center !important;
+		}
+		.info__amenities {
+			margin-left: auto !important;
+			margin-right: auto !important;
+			display: grid !important;
+			justify-items: center !important;
+			text-align: center !important;
+			max-width: 600px;
+			width: 100%;
+			.info__content__text {
+				text-align: center !important;
+			}
+			ul.info__content__text {
+				text-align: center !important;
+			}
+		}
+	}
 	&__lines {
 		position: absolute;
 		top: 50px;
@@ -124,6 +206,22 @@
 		.info__amenities {
 			margin-top: 24px;
 			width: 100%;
+			// 768px breakpoint: move amenities to the right
+			@media (max-width: 768px) {
+				max-width: 90%;
+			}
+			// Move "Amenidades" h4 title to the right
+			h4 {
+				@media (max-width: 768px) {
+					margin-left: var(--amenities-title-ml-768, auto);
+					text-align: center;
+          padding-right: 25%;
+				}
+
+        @media (max-width: 425px) {
+          padding-right: 33%;
+        }
+			}
 			// If consumer uses existing text class, reduce sizes here
 			.info__content__text {
 				font-size: 1.5rem; // smaller than the paragraph style
@@ -132,12 +230,16 @@
 				margin-bottom: 8px;
 				color: #fffac9; // match paragraph color
 				@include mobile {
-					font-size: 0.875rem;
+					font-size: 1rem;
 				}
 				li {
 					font-size: 1.15rem;
 					font-weight: 700; // match typography weight
 					color: #fffac9; // match paragraph color
+					// 725px breakpoint: edit li font size
+					@media (max-width: 768px) {
+						font-size: var(--amenities-li-fs-725, 0.8rem);
+					}
 				}
 			}
 		/* Amenities list with bullets */
@@ -145,7 +247,19 @@
         list-style-type: disc;
         list-style-position: inside;
         padding-left: 0;
-        margin: 0; }
+
+        margin: 0; 
+        @media (max-width: 768px) {
+          padding-left: 25%;
+        }
+        @media (max-width: 425px) {
+          padding-right: 25%;
+        }
+      }
+        
+      @include mobile {
+        order: 3;
+      }
 			&__title {
 				color: #fff;
 				font-weight: 700;
@@ -171,6 +285,7 @@
 			margin-top: 43px;
 			@include mobile {
 				display: block !important;
+				order: 1 !important;
 				margin-top: 21px;
 			}
 		}
